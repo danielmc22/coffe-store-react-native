@@ -15,19 +15,22 @@ const FormSignIn = (props) => {
     const [signIn, setSignIn] = useState({
         email: "",
         password: "",
+        from: "signup",
     })
 
     function enviar() {
         console.log(signIn)
 
-        alert("Under construction")
+        // alert("Under construction")
         props.signIn(signIn)
 
     }
 
     return (
         <ImageBackground source={{ uri: "https://papers.co/wallpaper/papers.co-vh91-watercolor-texture-dark-black-pattern-36-3840x2400-4k-wallpaper.jpg" }} style={{ width: "100 %", display: 'flex', alignItems: 'center', justifyContent: 'center', height: 700 }}>
-
+            {console.log("-------------------------------------------------------------------")}
+            {/* {console.log(props.user.email)} */}
+            {console.log("-------------------------------------------------------------------")}
             <View style={{ backgroundColor: "#f3a446", width: '90%', minHeight: 300, alignSelf: 'center', borderRadius: 10 }}>
                 <Text style={{ fontSize: 28, fontWeight: 'bold', textAlign: 'center', fontFamily: 'serif', paddingTop: 20, color: 'black', textShadowColor: '#17F5F9', marginBottom: 30 }}>
                     Sign In
@@ -103,13 +106,12 @@ const FormSignIn = (props) => {
 // }
 
 const mapDispatchToProps = {
-    signUp: userActions.signUp
+    signIn: userActions.signIn
 }
 
 const mapStateToProps = (state) => {
     return {
         user: state.userReducer.user
-
     }
 }
 

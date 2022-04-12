@@ -10,14 +10,16 @@ const FormSignUp = (props) => {
         lastName: "",
         email: "",
         password: "",
-        imageUrl: "",
+        photoURL: "",
         country: "",
+        from:"signup"
     })
 
     function enviar() {
 
-        alert("Under construction")
+        // alert("Under construction")
 
+        console.log(signUp)
         props.signUp(signUp)
 
     }
@@ -107,7 +109,7 @@ const FormSignUp = (props) => {
                         marginBottom={10}
 
 
-                        onChangeText={(text) => { setSignUp({ ...signUp, imageUrl: text }) }}
+                        onChangeText={(text) => { setSignUp({ ...signUp, photoURL: text }) }}
 
                     />
                     <TextInput
@@ -151,13 +153,13 @@ const FormSignUp = (props) => {
 
 const mapDispatchToProps = {
     signUp: userActions.signUp
-}
-
-const mapStateToProps = (state) => {
+  }
+  
+  const mapStateToProps = (state) => {
     return {
-        user: state.userReducer.user
-
+      user: state.userReducer.user
     }
-}
+  }
+  
 
 export default connect(mapStateToProps, mapDispatchToProps)(FormSignUp)

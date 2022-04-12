@@ -4,10 +4,11 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const usersActions = {
     signUp: (objUser) => {
+        console.log(objUser);
         return async (dispatch, getState) => {
             try {
                 const res = await axios.post(`https://macchiatoapp.herokuapp.com/api/auth/signUp`, { objUser })
-                console.log(res);
+                console.log(res.data);
                 dispatch({
                     type: "message",
                     payLoad: {
@@ -23,9 +24,12 @@ const usersActions = {
         }
     },
     signIn: (objUser) => {
+        // console.log("----------_________-------------");
+        // console.log(objUser);
         return async (dispatch, getState) => {
             try {
                 const res = await axios.post(`https://macchiatoapp.herokuapp.com/api/auth/signIn`, { objUser })
+                console.log(res.data);
                 if (res.data.success) {
                     AsyncStorage.setItem("token", res.data.response.token)
                     dispatch({ type: "user", payLoad: res.data })
