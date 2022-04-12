@@ -16,20 +16,18 @@ function OpenPag({ navigation }) {
 
 const styles = StyleSheet.create({
   containerImage: {
-    height: 350,
+    height: 100,
     display: 'flex',
     flexDirection: 'column',
     borderBottomLeftRadius: 50,
-    borderBottomStartRadius: 50,
-    borderBottomEndRadius: 200,
-
+    borderBottomStartRadius: 900,
+    borderBottomEndRadius: 900,
+    overflow: "hidden",
   },
 
   image: {
     height: '100%',
-    borderBottomLeftRadius: 50,
-    borderBottomStartRadius: 50,
-    borderBottomEndRadius: 200,
+    resizeMode:"cover"
   },
 });
 
