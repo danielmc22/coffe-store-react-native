@@ -98,9 +98,6 @@ const styles = ({
     marginBottom: 20,
     color: '#1d1d1d',
   },
-  buttom: {
-    color: "black"
-  },
   buttonContainer: {
     backgroundColor: '#1d1d1d',
     marginBottom: 15,
@@ -114,6 +111,6 @@ const styles = ({
   userImage: {
     width: 50,
     height: 50,
-    backgroundColor: "black"
+    // backgroundColor: "black"
   }
 });

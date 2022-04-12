@@ -89,7 +89,7 @@ function Carrusel(props) {
         snapToInterval={ANCHO_CONTENEDOR}
         decelerationRate={0}
         scrollEventThrottle={12}
-        data={props.allProducts.filter(prod => prod.category.trim() === "Coffees")}
+        data={props.allProducts?.filter(prod => prod.category.trim() === "Coffees")}
         keyExtractor={(item) => item._id}
         renderItem={({ item, index }) => {
           const inputRange = [
