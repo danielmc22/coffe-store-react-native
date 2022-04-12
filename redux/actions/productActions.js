@@ -1,9 +1,9 @@
 import axios from 'axios';
-
+import AsyncStorage from '@react-native-async-storage/async-storage';
 const productActions = {
     getAllProducts: () => {
         return async (dispatch, getState) => {
-            const res = await axios.get('http://localhost:4000/api/allproducts')
+            const res = await axios.get('https://macchiatoapp.herokuapp.com/api/allproducts')
             dispatch({ type: 'get_products', payload: res.data.response.products })
         }
     },
@@ -41,15 +41,15 @@ const productActions = {
     },
     getOneProduct: (id) => {
         return async (dispatch, getState) => {
-            const res = await axios.get(`http://localhost:4000/api/allproducts/${id}`);
+            const res = await axios.get(`https://macchiatoapp.herokuapp.com/api/allproducts/${id}`);
             dispatch({ type: 'get_one_product', payload: res.data.response.product })
             return res.data.response.product
         };
     },
     loadProduct: (objProd, id) => {
-        const token = localStorage.getItem('token')
+        const token = AsyncStorage.getItem('token')
         return async (dispatch, getState) => {
-            const res = await axios.post(`http://localhost:4000/api/allproducts/${id}`, { objProd }, {
+            const res = await axios.post(`https://macchiatoapp.herokuapp.com/api/allproducts/${id}`, { objProd }, {
                 headers: {
                     Authorization: 'Bearer ' + token
                 }
@@ -66,9 +66,9 @@ const productActions = {
         }
     },
     modifyProduct: (objProd, id) => {
-        const token = localStorage.getItem('token')
+        const token = AsyncStorage.getItem('token')
         return async (dispatch, getState) => {
-            const res = await axios.put(`http://localhost:4000/api/allproducts/${id}`, { objProd }, {
+            const res = await axios.put(`https://macchiatoapp.herokuapp.com/api/allproducts/${id}`, { objProd }, {
                 headers: {
                     Authorization: 'Bearer ' + token
                 }
@@ -85,9 +85,9 @@ const productActions = {
         }
     },
     deleteProduct: (id) => {
-        const token = localStorage.getItem('token')
+        const token = AsyncStorage.getItem('token')
         return async (dispatch, getState) => {
-            const res = await axios.post(`http://localhost:4000/api/allproducts/one/${id}`, {}, {
+            const res = await axios.post(`https://macchiatoapp.herokuapp.com/api/allproducts/one/${id}`, {}, {
                 headers: {
                     Authorization: 'Bearer ' + token
                 }
@@ -126,7 +126,7 @@ const productActions = {
         }
     },
     iniciarAlRecargar: () => {
-        let datosCart = JSON.parse(localStorage.getItem("shopCart"))
+        let datosCart = JSON.parse(AsyncStorage.getItem("shopCart"))
 
         return async (dispatch, getState) => {
             dispatch({ type: "iniciarAlRecargar", payload: datosCart })

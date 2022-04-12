@@ -1,12 +1,12 @@
 import axios from "axios";
-
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
 const usersActions = {
     signUp: (objUser) => {
         return async (dispatch, getState) => {
             try {
-                const res = await axios.post(`http://localhost:4000/api/auth/signUp`, { objUser })
+                const res = await axios.post(`https://macchiatoapp.herokuapp.com/api/auth/signUp`, { objUser })
                 console.log(res);
                 dispatch({
                     type: "message",
@@ -25,9 +25,9 @@ const usersActions = {
     signIn: (objUser) => {
         return async (dispatch, getState) => {
             try {
-                const res = await axios.post(`http://localhost:4000/api/auth/signIn`, { objUser })
+                const res = await axios.post(`https://macchiatoapp.herokuapp.com/api/auth/signIn`, { objUser })
                 if (res.data.success) {
-                    localStorage.setItem("token", res.data.response.token)
+                    AsyncStorage.setItem("token", res.data.response.token)
                     dispatch({ type: "user", payLoad: res.data })
                     dispatch({
                         type: "message", payLoad: {
@@ -56,8 +56,8 @@ const usersActions = {
         // console.log(userEmail)
         return async (dispatch, getState) => {
             try {
-                const res = await axios.post(`http://localhost:4000/api/auth/signOut`, { userEmail })
-                localStorage.removeItem("token")
+                const res = await axios.post(`https://macchiatoapp.herokuapp.com/api/auth/signOut`, { userEmail })
+                AsyncStorage.removeItem("token")
                 dispatch({
                     type: "userSignOut", payLoad: {
                         view: true,
@@ -76,7 +76,7 @@ const usersActions = {
         return async (dispatch, getState) => {
             try {
 
-                const res = await axios.get(`http://localhost:4000/api/auth/signInToken`, {
+                const res = await axios.get(`https://macchiatoapp.herokuapp.com/api/auth/signInToken`, {
                     headers: {
                         Authorization: "Bearer " + token   //dejar espacio en bearer antes del cierre de las comillas ( "Bearer ")
                     }
@@ -94,7 +94,7 @@ const usersActions = {
                         }
                     })
                 } else {
-                    localStorage.removeItem("token")
+                    AsyncStorage.removeItem("token")
                 }
             } catch (err) {
                 console.log(err)
@@ -105,7 +105,7 @@ const usersActions = {
         return async (dispatch, getState) => {
             try {
 
-                const res = await axios.get(`http://localhost:4000/api/auth/signInRol`, {
+                const res = await axios.get(`https://macchiatoapp.herokuapp.com/api/auth/signInRol`, {
                     headers: {
                         Authorization: "Bearer " + token   //dejar espacio en bearer antes del cierre de las comillas ( "Bearer ")
                     }
@@ -119,9 +119,9 @@ const usersActions = {
         }
     },
     getInfoUser: () => {
-        const token = localStorage.getItem("token")
+        const token = AsyncStorage.getItem("token")
         return async (dispatch, getState) => {
-            const res = await axios.get(`http://localhost:4000/api/user/info`, {
+            const res = await axios.get(`https://macchiatoapp.herokuapp.com/api/user/info`, {
                 headers: {
                     Authorization: "Bearer " + token   //dejar espacio en bearer antes del cierre de las comillas ( "Bearer ")
                 }
@@ -130,10 +130,10 @@ const usersActions = {
         }
     },
     modifiedUserData: (objData) => {
-        const token = localStorage.getItem("token")
+        const token = AsyncStorage.getItem("token")
         // console.log(token);
         return async (dispatch, getState) => {
-            const res = await axios.post(`http://localhost:4000/api/user/info`, { objData }, {
+            const res = await axios.post(`https://macchiatoapp.herokuapp.com/api/user/info`, { objData }, {
                 headers: {
                     Authorization: "Bearer " + token   //dejar espacio en bearer antes del cierre de las comillas ( "Bearer ")
                 }

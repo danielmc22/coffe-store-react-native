@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
-// import usuariosActions from "../../redux/actions/usuariosActions"
-import React, { useState } from 'react';
+import userActions from "../../redux/actions/userAction"
+import React, { useRef, useState } from 'react';
 import { Button, TextInput, View, ImageBackground, ScrollView, Text, TouchableOpacity, Feather } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
 
@@ -26,7 +26,7 @@ const FormSignUp = (props) => {
     return (
         <ScrollView>
             <ImageBackground source={{ uri: "https://papers.co/wallpaper/papers.co-vh91-watercolor-texture-dark-black-pattern-36-3840x2400-4k-wallpaper.jpg" }} style={{ width: "100 %", display: 'flex', alignItems: 'center', justifyContent: 'center', height: 700 }}>
-                <View style={{ backgroundColor: '#000', width: '90%', minHeight: 500, alignSelf: 'center', backgroundColor: "#f3a446", borderRadius: 10 }}>
+                <View style={{ backgroundColor: '#000', width: '90%', minHeight: 500, alignSelf: 'center', backgroundColor: "rgba(26, 26, 26, 0.999)", borderRadius: 10 }}>
                     <Text style={{ fontSize: 28, fontWeight: 'bold', textAlign: 'center', fontFamily: 'serif', paddingTop: 20, color: '#fff', textShadowColor: '#17F5F9', marginBottom: 30 }}>
                         Sign Up
                     </Text>
@@ -88,7 +88,7 @@ const FormSignUp = (props) => {
                         fontSize={15}
                         color="#fff"
                         marginBottom={10}
-                       
+
 
                         onChangeText={(text) => { setSignUp({ ...signUp, password: text }) }}
 
@@ -149,15 +149,15 @@ const FormSignUp = (props) => {
 }
 
 
-// const mapDispatchToProps = {
-//     signUp: usuariosActions.signUp
-// }
+const mapDispatchToProps = {
+    signUp: userActions.signUp
+}
 
-// const mapStateToProps = (state) => {
-//     return {
-//         user: state.usuariosReducer.user
+const mapStateToProps = (state) => {
+    return {
+        user: state.userReducer.user
 
-//     }
-// }
+    }
+}
 
-export default connect(null, null)(FormSignUp)
+export default connect(mapStateToProps, mapDispatchToProps)(FormSignUp)

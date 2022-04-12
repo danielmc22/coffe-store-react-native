@@ -1,9 +1,11 @@
+import AsyncStorage from '@react-native-async-storage/async-storage';
 const initialState = {
+
     allProducts: [],
     oneProduct: [],
     filtered: [],
     cart: [],
-    // cart: JSON.parse(localStorage.getItem("shopCart")) || [],
+    // cart: JSON.parse(AsyncStorage.getItem("shopCart")) || [],
 };
 
 const productReducer = (state = initialState, action) => {
@@ -33,7 +35,7 @@ const productReducer = (state = initialState, action) => {
             let itemCart
             let newItem = state.allProducts.find(prod => prod._id === action.payload)
             if (!newItem) {
-                newItem = JSON.parse(localStorage.getItem("shopCart")).find(prod => prod._id === action.payload)
+                newItem = JSON.parse(AsyncStorage.getItem("shopCart")).find(prod => prod._id === action.payload)
             } else {
 
                 itemCart = state.cart.find(prod => prod._id === newItem._id)
@@ -42,9 +44,9 @@ const productReducer = (state = initialState, action) => {
             itemCart = state.cart.find(prod => prod._id === newItem._id)
 
 
-            itemCart ? (localStorage.setItem("shopCart", JSON.stringify([...state.cart.map
+            itemCart ? (AsyncStorage.setItem("shopCart", JSON.stringify([...state.cart.map
                 (prod => prod._id === newItem._id ? { ...prod, quantity: prod.quantity + 1 } : { ...prod })]))) :
-                (localStorage.setItem("shopCart", JSON.stringify([...state.cart, { ...newItem, quantity: 1 }])))
+                (AsyncStorage.setItem("shopCart", JSON.stringify([...state.cart, { ...newItem, quantity: 1 }])))
 
             return itemCart ? {
                 ...state,
@@ -56,15 +58,15 @@ const productReducer = (state = initialState, action) => {
 
         case "removeOneFromCart":
 
-            let poductsStorage = JSON.parse(localStorage.getItem("shopCart"))
+            let poductsStorage = JSON.parse(AsyncStorage.getItem("shopCart"))
 
             let itemDelete = poductsStorage.find(prod => prod._id === action.payload)
 
-            itemDelete.quantity > 1 ? (localStorage.setItem("shopCart", JSON.stringify([...state.cart.map
+            itemDelete.quantity > 1 ? (AsyncStorage.setItem("shopCart", JSON.stringify([...state.cart.map
 
                 (prod => prod._id === action.payload ? { ...prod, quantity: prod.quantity - 1 } : { ...prod })]))) :
 
-                (localStorage.setItem("shopCart", JSON.stringify([...state.cart.filter(prod => prod._id !== action.payload)])))
+                (AsyncStorage.setItem("shopCart", JSON.stringify([...state.cart.filter(prod => prod._id !== action.payload)])))
 
 
             return itemDelete.quantity > 1 ? {
@@ -75,13 +77,13 @@ const productReducer = (state = initialState, action) => {
                 cart: state.cart.filter(prod => prod._id !== action.payload)
             }
         case "removeAllFromCart":
-            localStorage.setItem("shopCart", JSON.stringify([...state.cart.filter(prod => prod._id !== action.payload)]))
+            AsyncStorage.setItem("shopCart", JSON.stringify([...state.cart.filter(prod => prod._id !== action.payload)]))
             return {
                 ...state,
                 cart: state.cart.filter(prod => prod._id !== action.payload)
             }
         case "emptyCart":
-            localStorage.removeItem("shopCart")
+            AsyncStorage.removeItem("shopCart")
             return {
                 ...state,
                 cart: []

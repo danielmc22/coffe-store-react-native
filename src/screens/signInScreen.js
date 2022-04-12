@@ -1,8 +1,9 @@
 import { connect } from 'react-redux';
-// import usuariosActions from "../../redux/actions/usuariosActions"
+import userActions from "../../redux/actions/userAction"
 import React, { useState } from 'react';
 import { Button, TextInput, View, ImageBackground, ScrollView, Text, TouchableOpacity, Feather } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
+
 
 
 
@@ -101,4 +102,15 @@ const FormSignIn = (props) => {
 //     }
 // }
 
-export default connect(null, null)(FormSignIn)
+const mapDispatchToProps = {
+    signUp: userActions.signUp
+}
+
+const mapStateToProps = (state) => {
+    return {
+        user: state.userReducer.user
+
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(FormSignIn)
