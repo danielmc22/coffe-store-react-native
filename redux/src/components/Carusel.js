@@ -43,7 +43,7 @@ function Backdrop({ scrollX }) {
   );
 }
 
-export default function App() {
+export default function Carrusel() {
   const [ArrayDatos, setDatos] = useState([])
 
   useEffect(() => {
