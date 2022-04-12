@@ -14,8 +14,8 @@ export default function App() {
   return (
     <Provider store={reduxStore} style={{ height: '100%', width: '100%', flex: 1, flexDirection: 'column' }}>
       <NavigationContainer>
-        <StatusBar style="auto" backgroundColor='#17F5F9'/>
-        <DrawerNavigator/>
+        <StatusBar style="auto" backgroundColor='#17F5F9' />
+        <DrawerNavigator />
       </NavigationContainer>
     </Provider>
   );

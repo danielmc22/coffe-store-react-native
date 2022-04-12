@@ -1,10 +1,10 @@
 import { StyleSheet, Text, View, ScrollView, TouchableOpacity } from 'react-native';
 import React from 'react'
 
-function OpenPag({ navtigation }){
-  return(
+function OpenPag({ navigation }) {
+  return (
     <ScrollView>
-      <text>Hola soy Open pag</text>
+      <Text>Hola soy Open pag</Text>
     </ScrollView>
   )
 }
