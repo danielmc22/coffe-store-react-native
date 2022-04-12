@@ -126,7 +126,7 @@ const productActions = {
         }
     },
     iniciarAlRecargar: () => {
-        let datosCart = JSON.parse(AsyncStorage.getItem("shopCart"))
+        let datosCart = AsyncStorage.getItem("shopCart")
 
         return async (dispatch, getState) => {
             dispatch({ type: "iniciarAlRecargar", payload: datosCart })

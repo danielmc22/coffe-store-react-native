@@ -6,7 +6,7 @@ function OpenPag({ navigation }) {
     <ScrollView >
       <ImageBackground source={{ uri: 'https://i.ibb.co/2gHfJjq/Fondo-App-Macchiato-2.jpg' }} style={{ width: "100%", height: 700 }}>
         <View style={styles.containerImage}>
-          <ImageBackground source={{ uri: 'https://images.unsplash.com/photo-1596098823457-74e360fcd023?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80' }} style={styles.image}>
+          <ImageBackground source={{ uri: 'https://images.pexels.com/photos/2916450/pexels-photo-2916450.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260' }} style={styles.image}>
 
             <Text style={{ position: 'absolute', color: '#efeefe', fontSize: 50, alignSelf: 'center', marginHorizontal: 'auto', marginVertical: 'auto' }} >Macchiato</Text>
           </ImageBackground>
@@ -32,11 +32,11 @@ function OpenPag({ navigation }) {
 
 const styles = StyleSheet.create({
   containerImage: {
-    height: 350,
+    height: 450,
     display: 'flex',
     flexDirection: 'column',
-    borderBottomRightRadius: 170,
-    borderBottomLeftRadius: 170,
+    // borderBottomRightRadius: 170,
+    // borderBottomLeftRadius: 170,
     // borderBottomStartRadius: 5,
     // borderBottomEndRadius: 5,
     // borderRadius:10000,

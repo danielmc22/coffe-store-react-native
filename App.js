@@ -7,6 +7,11 @@ import thunk from "redux-thunk";
 import mainReducer from './redux/reducers/mainReducer';
 import { NavigationContainer } from '@react-navigation/native';
 import DrawerNavigator from './src/navigation/Drawer';
+import userAction from './redux/actions/userAction';
+import productActions from './redux/actions/productActions';
+
+
+
 
 export default function App() {
   const reduxStore = createStore(mainReducer, applyMiddleware(thunk))

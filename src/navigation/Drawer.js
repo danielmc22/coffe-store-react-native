@@ -5,20 +5,37 @@ import { Text, View, Image } from "react-native"
 import FormSignIn from "../screens/signInScreen"
 import FormSignUp from "../screens/signUpScreen"
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import userActions from "../../redux/actions/userAction"
 import { connect } from 'react-redux';
 import AsyncStorageLib from '@react-native-async-storage/async-storage';
 import { version } from 'react-dom';
 import Home from '../screens/Home';
+import productActions from '../../redux/actions/productActions';
+import userAction from "../../redux/actions/userAction"
+import { useEffect } from 'react';
+
+
+
 const Drawer = createDrawerNavigator();
 
 function DrawerNavigator(props) {
+
+
+  useEffect(() => {
+    if (AsyncStorageLib.getItem("token") !== null) {
+      const token = AsyncStorageLib.getItem("token")
+      props.verifyToken(token)
+      props.verifiedRol(AsyncStorageLib.getItem("token"))
+      // .then(res => setAuthorized(res))
+      props.iniciarAlRecargar()
+    }
+
+  }, [])
   return (
     <Drawer.Navigator initialRouteName="Open"
       drawerContent={props => <CustomDrawer {...props} user={props.user} />}
     >
       {console.log("----------------------")}
-      {console.log(props.user)}
+      {console.log(props.user?.email)}
       {console.log("----------------------")}
       <Drawer.Screen name="Open" component={OpenPag} />
       <Drawer.Screen name="Home" component={Home} />
@@ -34,15 +51,28 @@ const mapStateToProps = (state) => {
   return {
     user: state.userReducer.user,
     authorized: state.userReducer.authorized,
-    cart: state.productReducer.cart
+    cart: state.productReducer.cart,
+    user: state.userReducer.user,
+    authorized: state.userReducer.authorized
+    
   }
 }
 
 const mapDispatchToProps = {
-  signOut: userActions.signOut
+  signOut: userAction.signOut,
+  verifyToken: userAction.verifyToken,
+  verifiedRol: userAction.verifiedRol,
+  iniciarAlRecargar: productActions.iniciarAlRecargar
 
 }
 export default connect(mapStateToProps, mapDispatchToProps)(DrawerNavigator);
+
+
+
+
+
+
+
 
 
 const CustomDrawer = (props) => {
@@ -111,6 +141,6 @@ const styles = ({
   userImage: {
     width: 50,
     height: 50,
-    // backgroundColor: "black"
+    backgroundColor: "grey"
   }
 });
