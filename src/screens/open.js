@@ -19,17 +19,12 @@ const styles = StyleSheet.create({
     height: 350,
     display: 'flex',
     flexDirection: 'column',
-    borderBottomLeftRadius: 50,
-    borderBottomStartRadius: 50,
-    borderBottomEndRadius: 200,
 
   },
 
   image: {
     height: '100%',
-    borderBottomLeftRadius: 50,
-    borderBottomStartRadius: 50,
-    borderBottomEndRadius: 200,
+
   },
 });
 
