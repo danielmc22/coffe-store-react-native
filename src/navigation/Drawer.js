@@ -4,8 +4,8 @@ import OpenPag from '../screens/open';
 
 const Drawer = createDrawerNavigator();
 
-function DrawerNavigator(){
-  return(
+function DrawerNavigator() {
+  return (
     <Drawer.Navigator initialRouteName="Open">
       <Drawer.Screen name="Open" component={OpenPag} />
     </Drawer.Navigator>
