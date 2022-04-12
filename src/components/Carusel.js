@@ -9,7 +9,8 @@ import {
   Animated,
 } from "react-native";
 import React, { useState, useEffect } from 'react';
-import getCiudades from "src/components/apiCalls"
+import productActions from "../../redux/actions/productActions";
+import { connect } from "react-redux";
 // import { Text, Dimensions, StyleSheet, View, Image, ScrollView } from 'react-native';
 
 // import { LinearGradient } from "expo-linear-gradient";
@@ -43,20 +44,26 @@ function Backdrop({ scrollX }) {
   );
 }
 
-export default function Carrusel() {
-  const [ArrayDatos, setDatos] = useState([])
+
+function Carrusel(props) {
+  const [ArrayDatos, setDatos] = useState(props.allProducts)
 
   useEffect(() => {
+    let ciudades
+    if (!props.allProducts) {
 
-    getCiudades().then(response => {
-      let ciudades = response.data.response.ciudades
+      props.getAllProducts()
+      ciudades = props.allProducts
       ciudades.length = 12
-
-
       setDatos((ciudades))
-      // console.log("Estas son las ciudades")
-      // console.log(ArrayDatos)
-    })
+
+
+    }
+
+
+    // console.log("Estas son las ciudades")
+    // console.log(ArrayDatos)
+
 
 
   }, [])
@@ -82,7 +89,7 @@ export default function Carrusel() {
         snapToInterval={ANCHO_CONTENEDOR}
         decelerationRate={0}
         scrollEventThrottle={12}
-        data={ArrayDatos}
+        data={props.allProducts.filter(prod => prod.category.trim() === "Coffees")}
         keyExtractor={(item) => item._id}
         renderItem={({ item, index }) => {
           const inputRange = [
@@ -102,15 +109,15 @@ export default function Carrusel() {
                   marginHorizontal: ESPACIO,
                   padding: ESPACIO,
                   borderRadius: 15,
-                  backgroundColor: "brown",
+                  backgroundColor: "transparent",
                   alignItems: "center",
                   transform: [{ translateY: scrollY }],
                 }}
               >
-                <Image source={{ uri: `https://mytinerarry-olguin.herokuapp.com/imagenes/${item.imagen}` }} style={styles.posterImage} />
-                <Text style={{ fontWeight: "bold", fontSize: 26, color: "#fff", }}>
+                <Image source={{ uri: `${item.image}` }} style={styles.posterImage} />
+                <Text style={{ fontWeight: "bold", fontSize: 26, color: "#fff", textAlign: "center" }}>
                   {" "}
-                  {item.ciudad}
+                  {item.name}
                 </Text>
               </Animated.View>
             </View>
@@ -120,6 +127,19 @@ export default function Carrusel() {
     </SafeAreaView>
   );
 }
+
+const mapStateToProps = (state) => {
+  return {
+    allProducts: state.productReducer.allProducts
+  }
+}
+
+const mapDispatchToProps = {
+  getAllProducts: productActions.getAllProducts
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Carrusel);
 
 const styles = StyleSheet.create({
   container: {

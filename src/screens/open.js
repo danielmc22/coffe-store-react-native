@@ -4,30 +4,51 @@ import React from 'react'
 function OpenPag({ navigation }) {
   return (
     <ScrollView >
-      <View style={styles.containerImage}>
-        <ImageBackground source={{ uri: 'https://png.pngtree.com/background/20210717/original/pngtree-mobile-wallpaper-a-cup-of-coffee-hello-picture-image_1446776.jpg' }} style={styles.image}>
+      <ImageBackground source={{ uri: 'https://i.ibb.co/2gHfJjq/Fondo-App-Macchiato-2.jpg' }} style={{ width: "100%", height: 700 }}>
+        <View style={styles.containerImage}>
+          <ImageBackground source={{ uri: 'https://images.unsplash.com/photo-1596098823457-74e360fcd023?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80' }} style={styles.image}>
 
-          <Text style={{ position: 'absolute', color: '#000', fontSize: 20, left: 60 }} >Macchiato</Text>
-        </ImageBackground>
-      </View>
+            <Text style={{ position: 'absolute', color: '#efeefe', fontSize: 50, alignSelf: 'center', marginHorizontal: 'auto', marginVertical: 'auto' }} >Macchiato</Text>
+          </ImageBackground>
+        </View>
+
+        <View style={{ display: 'flex', height: 150, width: '100%', justifyContent: 'center', alignItems: 'center' }}>
+          <Text style={{ fontSize: 20, textAlign: 'center', color: '#efeefe' }}>Welcome to a wonderfull experience with coffe in Macchiato</Text>
+        </View>
+
+        <TouchableOpacity
+          onPress={() => navigation.navigate('Home')}
+          title="Home"
+          fontFamily='serif'
+          style={{ alignItems: "center", justifyContent: "center", marginTop: 5, marginBottom: 20, backgroundColor: "#F3A446", width: "80%", height: 70, borderRadius: 35, marginLeft: "auto", marginRight: "auto", padding: 4 }}
+
+
+        ><Text style={{ color: "#000", fontSize: 22 }}>Get started</Text>
+        </TouchableOpacity>
+      </ImageBackground>
     </ScrollView >
   )
 }
 
 const styles = StyleSheet.create({
   containerImage: {
-    height: 100,
+    height: 350,
     display: 'flex',
     flexDirection: 'column',
-    borderBottomLeftRadius: 50,
-    borderBottomStartRadius: 900,
-    borderBottomEndRadius: 900,
+    borderBottomRightRadius: 170,
+    borderBottomLeftRadius: 170,
+    // borderBottomStartRadius: 5,
+    // borderBottomEndRadius: 5,
+    // borderRadius:10000,
     overflow: "hidden",
   },
 
   image: {
     height: '100%',
-    resizeMode:"cover"
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    opacity: 0.8,
   },
 });
 

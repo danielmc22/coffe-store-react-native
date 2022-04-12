@@ -9,6 +9,7 @@ import userActions from "../../redux/actions/userAction"
 import { connect } from 'react-redux';
 import AsyncStorageLib from '@react-native-async-storage/async-storage';
 import { version } from 'react-dom';
+import Home from '../screens/Home';
 const Drawer = createDrawerNavigator();
 
 function DrawerNavigator(props) {
@@ -20,6 +21,7 @@ function DrawerNavigator(props) {
       {console.log(props.user)}
       {console.log("----------------------")}
       <Drawer.Screen name="Open" component={OpenPag} />
+      <Drawer.Screen name="Home" component={Home} />
       <Drawer.Screen name="SignIn" component={FormSignIn} />
       <Drawer.Screen name="SignUp" component={FormSignUp} />
     </Drawer.Navigator>
