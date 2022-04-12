@@ -9,7 +9,7 @@ import {
   Animated,
 } from "react-native";
 import React, { useState, useEffect } from 'react';
-import getCiudades from "./apiCalls"
+import getCiudades from "src/components/apiCalls"
 // import { Text, Dimensions, StyleSheet, View, Image, ScrollView } from 'react-native';
 
 // import { LinearGradient } from "expo-linear-gradient";
