@@ -29,10 +29,11 @@ function DrawerNavigator(props) {
     AsyncStorage.getItem("token").then(res => {
       console.log(res)
       if (res) {
-        AsyncStorage.getItem("token").then(res => props.verifyToken(res) || [])
-        AsyncStorage.getItem("token").then(res => props.verifiedRol(res) || [])
+
       }
     })
+    AsyncStorage.getItem("token").then(res => props.verifyToken(res))
+    AsyncStorage.getItem("token").then(res => props.verifiedRol(res))
     setUser(props.user)
     // console.log("user user user ");
     // console.log(user);
