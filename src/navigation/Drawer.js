@@ -11,8 +11,13 @@ import { version } from 'react-dom';
 import Home from '../screens/Home';
 import productActions from '../../redux/actions/productActions';
 import userAction from "../../redux/actions/userAction"
+<<<<<<< HEAD
 import { useEffect, useState } from 'react';
 import CustomDrawer from "../components/DrawerCustom"
+=======
+import { useEffect } from 'react';
+import Shop from '../screens/Shop';
+>>>>>>> 88234142892b4662d2ae6bfdcc9fe4334338b76e
 
 
 import AboutUs from '../screens/aboutUs';
@@ -56,7 +61,11 @@ function DrawerNavigator(props) {
 
       <Drawer.Screen name="Open" component={OpenPag} />
       <Drawer.Screen name="Home" component={Home} />
+<<<<<<< HEAD
       <Drawer.Screen name="AboutUs" component={AboutUs} />
+=======
+      <Drawer.Screen name="Shop" component={Shop}/>
+>>>>>>> 88234142892b4662d2ae6bfdcc9fe4334338b76e
       <Drawer.Screen name="SignIn" component={FormSignIn} />
       <Drawer.Screen name="SignUp" component={FormSignUp} />
     </Drawer.Navigator>
