@@ -31,7 +31,7 @@ const usersActions = {
                 const res = await axios.post(`https://macchiatoapp.herokuapp.com/api/auth/signIn`, { objUser })
                 console.log(res.data);
                 if (res.data.success) {
-                    // AsyncStorage.setItem("token", res.data.response.token)
+                    AsyncStorage.setItem("token", res.data.response.token)
                     dispatch({ type: "user", payLoad: res.data })
                     dispatch({
                         type: "message", payLoad: {

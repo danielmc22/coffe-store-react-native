@@ -40,7 +40,6 @@ const CustomDrawer = (props, propsHijo) => {
                     </View>
                 )}
             </View>
-            {/* <DrawerItemList /> */}
 
             <Text style={styles.title}> Macchiato </Text>
 
