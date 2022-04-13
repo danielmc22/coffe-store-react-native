@@ -22,19 +22,18 @@ const Drawer = createDrawerNavigator();
 
 function DrawerNavigator(props) {
 
-  const [user, setUser] = useState(props?.user)
+  // const [user, setUser] = useState(props?.user)
 
 
   useEffect(() => {
+    let tokenP= ""
     AsyncStorage.getItem("token").then(res => {
       console.log(res)
-      if (res) {
-
-      }
+    
     })
     AsyncStorage.getItem("token").then(res => props.verifyToken(res))
     AsyncStorage.getItem("token").then(res => props.verifiedRol(res))
-    setUser(props.user)
+    // setUser(props.user)
     // console.log("user user user ");
     // console.log(user);
     // console.log("user user user ");

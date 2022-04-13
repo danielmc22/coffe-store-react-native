@@ -43,10 +43,21 @@ const CustomDrawer = (props, propsHijo) => {
 
             <Text style={styles.title}> Macchiato </Text>
 
+            {props.user ? (
 
-            <TouchableOpacity style={styles.buttonContainer} name="Open" onPress={() => props.navigation.navigate("Open")} >
-                <Text style={styles.textButtom}> Open</Text>
-            </TouchableOpacity>
+                <TouchableOpacity style={styles.buttonContainer} name="Open" onPress={() => props.signOut()} >
+                    <Text style={styles.textButtom}> Sign Out</Text>
+                </TouchableOpacity>
+            ) : (
+                <>
+                    <TouchableOpacity style={styles.buttonContainer} name="SignIn" onPress={() => props.navigation.navigate("SignIn")} >
+                        <Text style={styles.textButtom}> Sign In</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.buttonContainer} name="SignUp" onPress={() => props.navigation.navigate("SignUp")} >
+                        <Text style={styles.textButtom}> Sign Up</Text>
+                    </TouchableOpacity>
+                </>
+            )}
 
             <TouchableOpacity style={styles.buttonContainer} name="Home" onPress={() => props.navigation.navigate("Home")} >
                 <Text style={styles.textButtom}> Home</Text>
@@ -57,12 +68,12 @@ const CustomDrawer = (props, propsHijo) => {
             <TouchableOpacity style={styles.buttonContainer} name="Shop" onPress={() => props.navigation.navigate("Shop")} >
                 <Text style={styles.textButtom}> Shop</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.buttonContainer} name="SignIn" onPress={() => props.navigation.navigate("SignIn")} >
+            {/* <TouchableOpacity style={styles.buttonContainer} name="SignIn" onPress={() => props.navigation.navigate("SignIn")} >
                 <Text style={styles.textButtom}> Sign In</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.buttonContainer} name="SignUp" onPress={() => props.navigation.navigate("SignUp")} >
                 <Text style={styles.textButtom}> Sign Up</Text>
-            </TouchableOpacity>
+            </TouchableOpacity> */}
         </DrawerContentScrollView>
     );
 
