@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import userActions from "../../redux/actions/userAction"
 import React, { useState } from 'react';
-import { Button, TextInput, View, ImageBackground, ScrollView, Text, TouchableOpacity, Feather,Image} from 'react-native';
+import { Button, TextInput, View, ImageBackground, ScrollView, Text, TouchableOpacity, Feather, Image } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
 import { color } from 'react-native-reanimated';
 
@@ -32,7 +32,6 @@ const FormSignIn = (props) => {
             {/* {console.log("-------------------------------------------------------------------")} */}
             {/* {console.log(props.user.email)} */}
             {/* {console.log("-------------------------------------------------------------------")} */}
-            {/* <Image style={{width:200,height:200}} source={{uri:props.user.photoURL}}/> */}
             <View style={{ backgroundColor: "#f3a446", width: '90%', minHeight: 300, alignSelf: 'center', borderRadius: 10 }}>
                 <Text style={{ fontSize: 28, fontWeight: 'bold', textAlign: 'center', fontFamily: 'serif', paddingTop: 20, color: 'black', textShadowColor: '#17F5F9', marginBottom: 30 }}>
                     Sign In

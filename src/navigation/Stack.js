@@ -12,7 +12,7 @@ function StoreNavigator() {
       <Stack.Screen name='Store' component={Shop}
         options={{ headerShown: false, }} />
       <Stack.Screen name='Detalle' component={Shop}
-        options={{ headerShown: false, }} />
+        options={{ headerShown: true, }} />
     </Stack.Navigator >
   )
 }

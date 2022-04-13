@@ -29,7 +29,7 @@ function AboutUs({ navigation }) {
           <Text style={{ color: "#000", fontSize: 28, textAlign: 'justify', padding: 20 }}>Being able to enjoy Macchiato products in a relaxed atmosphere, and at the same time sharing rewarding moments, were the reasons that gave rise to the creation of the Macchiato Coffee concept. </Text>
         </View>
 
-        <View style={{ display: 'flex', height: 170, justifyContent: 'space-evenly', flexDirection: 'row' }}>
+        <View style={{ display: 'flex', height: 170, justifyContent: 'space-evenly', flexDirection: 'row', }}>
           <View style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
             <Text style={{ fontSize: 15, color: '#efeefe', marginVertical: 8 }}>Federico Olguín</Text>
             <View style={{ borderRadius: 100, backgroundColor: 'black', width: 100, height: 100, overflow: 'hidden' }}>

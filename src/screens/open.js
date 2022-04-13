@@ -4,7 +4,7 @@ import React from 'react'
 function OpenPag({ navigation }) {
   return (
     <ScrollView >
-      <ImageBackground source={{ uri: 'https://i.ibb.co/2gHfJjq/Fondo-App-Macchiato-2.jpg' }} style={{ width: "100%", height: 700 }}>
+      <ImageBackground source={{ uri: 'https://i.ibb.co/2gHfJjq/Fondo-App-Macchiato-2.jpg' }} style={{ width: "100%", height: 800 }}>
         <View style={styles.containerImage}>
           <ImageBackground source={{ uri: 'https://images.pexels.com/photos/2916450/pexels-photo-2916450.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260' }} style={styles.image}>
 

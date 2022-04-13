@@ -1,22 +1,24 @@
-import React,{useEffect} from 'react'
+import React, { useEffect } from 'react'
 import { Button, Image, View, ImageBackground, ScrollView, Text, TouchableOpacity, Feather, StyleSheet } from 'react-native';
 import productActions from "../../redux/actions/productActions"
 import { connect } from 'react-redux';
+import { color } from 'react-native-reanimated';
+import { AntDesign } from '@expo/vector-icons';
 
 
 function CardShop(props) {
-    return(
+    return (
         <View style={Styles.card}>
-            
-                <Image
+
+            <Image
                 style={Styles.imageCard}
-                source={{uri:props.product.image}}
-                />
+                source={{ uri: props.product.image }}
+            />
             <View style={Styles.boxInfo}>
-                <Text>{props.product.name}</Text>
-                <Text>{props.product.price}</Text>
+                <Text style={{ color: '#efeefe', fontSize: 20, textAlign: 'center', fontWeight: 'bold' }}>{props.product.name}</Text>
+                <Text style={{ color: '#efeefe', fontSize: 20, textAlign: 'center' }}>$ {props.product.price}</Text>
                 <View>
-                    <Text>Icons cart</Text>
+                    <AntDesign name="shoppingcart" size={30} color="white" />
                 </View>
             </View>
         </View>
@@ -26,26 +28,25 @@ function CardShop(props) {
 export default CardShop
 
 const Styles = StyleSheet.create({
-    card:{
-        backgroundColor: 'green',
-        width:'100%',
-        height:170,
+    card: {
+        width: '100%',
+        height: 170,
         display: 'flex',
         justifyContent: 'space-around',
         flexDirection: 'row',
-        alignItems:'center'
+        alignItems: 'center'
     },
-    imageCard:{
-        backgroundColor:'black',
-        height:'90%',
+    imageCard: {
+        height: '90%',
         width: '38%'
     },
-    boxInfo:{
-        backgroundColor:'pink',
+    boxInfo: {
         width: '56%',
-        height:'90%',
-        display:'flex',
+        height: '90%',
+        display: 'flex',
         justifyContent: 'space-around',
-        paddingLeft: 10
+        paddingLeft: 10,
+
+        alignItems: 'center',
     }
 })
