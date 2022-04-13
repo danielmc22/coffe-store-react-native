@@ -17,14 +17,14 @@ function HomePag(props) {
   }, [])
   return (
     <ScrollView>
-      <ImageBackground source={{ uri: 'https://i.ibb.co/2gHfJjq/Fondo-App-Macchiato-2.jpg' }} style={{ width: "100%", minHeight: 1000 }}>
+      <ImageBackground source={require('../../assets/fondo_alto.jpg')} style={{ width: "100%", minHeight: 1000 }}>
         <View style={{
           height: 300,
           display: 'flex',
           flexDirection: 'column',
           overflow: "hidden",
         }}>
-          <ImageBackground source={{ uri: 'https://images.unsplash.com/photo-1596098823457-74e360fcd023?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80' }} style={{
+          <ImageBackground source={require('../../assets/Home3.png')} style={{
             width: '100%',
             height: '100%',
             display: 'flex',
@@ -34,10 +34,10 @@ function HomePag(props) {
 
           }}>
 
-            <Image
+            {/* <Image
               source={require("../../assets/favicon.png")}
               style={{ width: 120, height: 120, alignSelf: "flex-start" }}
-            />
+            /> */}
           </ImageBackground>
         </View>
         <View style={{ display: 'flex', height: 130, width: '100%', flexDirection: 'row', alignContent: 'center', alignItems: 'center', justifyContent: 'center', justifyContent: 'space-around', marginTop: 30 }}>

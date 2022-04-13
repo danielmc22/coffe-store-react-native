@@ -4,23 +4,21 @@ import React from 'react'
 function OpenPag({ navigation }) {
   return (
     <ScrollView >
-      <ImageBackground source={{ uri: 'https://i.ibb.co/2gHfJjq/Fondo-App-Macchiato-2.jpg' }} style={{ width: "100%", height: 800 }}>
+      <ImageBackground source={require('../../assets/fondo_alto.jpg')} style={{ width: "100%", height:750 }}>
         <View style={styles.containerImage}>
-          <ImageBackground source={{ uri: 'https://images.pexels.com/photos/2916450/pexels-photo-2916450.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260' }} style={styles.image}>
-
-            <Text style={{ position: 'absolute', color: '#efeefe', fontSize: 50, alignSelf: 'center', marginHorizontal: 'auto', marginVertical: 'auto' }} >Macchiato</Text>
+          <ImageBackground source={require('../../assets/Home3.png')} style={styles.image}>
           </ImageBackground>
         </View>
 
         <View style={{ display: 'flex', height: 150, width: '100%', justifyContent: 'center', alignItems: 'center' }}>
-          <Text style={{ fontSize: 20, textAlign: 'center', color: '#efeefe' }}>Welcome to a wonderfull experience with coffe in Macchiato</Text>
+          <Text style={{ fontSize: 20, textAlign: 'center', color: '#efeefe', }}>Welcome to a wonderfull experience with coffe in Macchiato</Text>
         </View>
 
         <TouchableOpacity
           onPress={() => navigation.navigate('Home')}
           title="Home"
           fontFamily='serif'
-          style={{ alignItems: "center", justifyContent: "center", marginTop: 5, marginBottom: 20, backgroundColor: "#F3A446", width: "80%", height: 70, borderRadius: 35, marginLeft: "auto", marginRight: "auto", padding: 4 }}
+          style={{ alignItems: "center", justifyContent: "center", marginTop: 5, marginBottom: 20, backgroundColor: "#A06235", width: "80%", height: 70, borderRadius: 35, marginLeft: "auto", marginRight: "auto", padding: 4 }}
 
 
         ><Text style={{ color: "#000", fontSize: 22 }}>Get started</Text>
