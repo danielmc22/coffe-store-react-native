@@ -28,12 +28,12 @@ const FormSignIn = (props) => {
     }
 
     return (
-        <ImageBackground source={{ uri: "https://papers.co/wallpaper/papers.co-vh91-watercolor-texture-dark-black-pattern-36-3840x2400-4k-wallpaper.jpg" }} style={{ width: "100 %", display: 'flex', alignItems: 'center', justifyContent: 'center', height: 700 }}>
+        <ImageBackground source={require('../../assets/fondo_alto.jpg')} style={{ width: "100 %", display: 'flex', alignItems: 'center', justifyContent: 'center', height: 700 }}>
             {/* {console.log("-------------------------------------------------------------------")} */}
             {/* {console.log(props.user.email)} */}
             {/* {console.log("-------------------------------------------------------------------")} */}
             {/* <Image style={{width:200,height:200}} source={{uri:props.user.photoURL}}/> */}
-            <View style={{ backgroundColor: "#f3a446", width: '90%', minHeight: 300, alignSelf: 'center', borderRadius: 10 }}>
+            <View style={{ backgroundColor: "#A06235", width: '90%', minHeight: 300, alignSelf: 'center', borderRadius: 10 }}>
                 <Text style={{ fontSize: 28, fontWeight: 'bold', textAlign: 'center', fontFamily: 'serif', paddingTop: 20, color: 'black', textShadowColor: '#17F5F9', marginBottom: 30 }}>
                     Sign In
                 </Text>
