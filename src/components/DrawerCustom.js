@@ -11,10 +11,7 @@ import { version } from 'react-dom';
 import Home from '../screens/Home';
 import productActions from '../../redux/actions/productActions';
 import userAction from "../../redux/actions/userAction"
-import {
-    Dropdown
-}
-    from 'react-native-material-dropdown';
+
 
 
 
@@ -33,7 +30,7 @@ const CustomDrawer = (props, propsHijo) => {
 
                 {props.user ? (
                     <View style={{ width: "100%", display: "flex", flexDirection: "row", marginBottom: 30, alignItems: "center" }}>
-                        <Image style={styles.userImage} source={{ uri: props.user.photoURL }} />
+                        <Image style={styles.userImage} source={{ uri: props.user?.photoURL }} />
                         <Text> {" " + props.user.name.firstName + " " + props.user.name.lastName}</Text>
                         <DrawerItem label="Sign Out" onPress={() => props.signOut()} />
                     </View>
