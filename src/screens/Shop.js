@@ -37,7 +37,10 @@ function Shop(props) {
                 <Picker
                 // selectedValue={selectedValue}
                 style={{ height: 50, width: 150 }}
-                onChange={(event) => { setEventSelect(event.nativeEvent.text); filter(eventInput, event.nativeEvent.text) }}
+                onValueChange={(event) => { 
+                    setEventSelect(event); filter(eventInput, event) 
+                    
+                }}
                 >   
                     <Picker.Item label='Choose the category' value=''/>
                     {categories.map((category)=>
