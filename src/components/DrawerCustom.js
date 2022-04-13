@@ -6,10 +6,8 @@ import FormSignIn from "../screens/signInScreen"
 import FormSignUp from "../screens/signUpScreen"
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { connect } from 'react-redux';
-import AsyncStorage, { useAsyncStorage } from '@react-native-async-storage/async-storage';
-import { version } from 'react-dom';
-import Home from '../screens/Home';
-import productActions from '../../redux/actions/productActions';
+
+
 import userAction from "../../redux/actions/userAction"
 
 
@@ -60,15 +58,9 @@ const CustomDrawer = (props, propsHijo) => {
             <TouchableOpacity style={styles.buttonContainer} name="AboutUs" onPress={() => props.navigation.navigate("AboutUs")} >
                 <Text style={styles.textButtom}> About Us</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.buttonContainer} name="Shop" onPress={() => props.navigation.navigate("Shop")} >
+            <TouchableOpacity style={styles.buttonContainer} name="StoreNavigator" onPress={() => props.navigation.navigate("StoreNavigator")} >
                 <Text style={styles.textButtom}> Shop</Text>
             </TouchableOpacity>
-            {/* <TouchableOpacity style={styles.buttonContainer} name="SignIn" onPress={() => props.navigation.navigate("SignIn")} >
-                <Text style={styles.textButtom}> Sign In</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.buttonContainer} name="SignUp" onPress={() => props.navigation.navigate("SignUp")} >
-                <Text style={styles.textButtom}> Sign Up</Text>
-            </TouchableOpacity> */}
         </DrawerContentScrollView>
     );
 

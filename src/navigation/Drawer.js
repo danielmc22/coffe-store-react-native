@@ -15,6 +15,7 @@ import { useEffect, useState } from 'react';
 import CustomDrawer from "../components/DrawerCustom"
 import Shop from '../screens/Shop';
 import AboutUs from '../screens/aboutUs';
+import StoreNavigator from "../navigation/Stack"
 
 
 const Drawer = createDrawerNavigator();
@@ -25,10 +26,10 @@ function DrawerNavigator(props) {
 
 
   useEffect(() => {
-    let tokenP= ""
+    let tokenP = ""
     AsyncStorage.getItem("token").then(res => {
       console.log(res)
-    
+
     })
     AsyncStorage.getItem("token").then(res => props.verifyToken(res))
     AsyncStorage.getItem("token").then(res => props.verifiedRol(res))
@@ -56,7 +57,7 @@ function DrawerNavigator(props) {
       <Drawer.Screen name="Open" component={OpenPag} />
       <Drawer.Screen name="Home" component={Home} />
       <Drawer.Screen name="AboutUs" component={AboutUs} />
-      <Drawer.Screen name="Shop" component={Shop}/>
+      <Drawer.Screen name="StoreNavigator" component={StoreNavigator} />
       <Drawer.Screen name="SignIn" component={FormSignIn} />
       <Drawer.Screen name="SignUp" component={FormSignUp} />
     </Drawer.Navigator>
