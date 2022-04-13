@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import userActions from "../../redux/actions/userAction"
 import React, { useState } from 'react';
-import { Button, TextInput, View, ImageBackground, ScrollView, Text, TouchableOpacity, Feather,Image} from 'react-native';
+import { Button, TextInput, View, ImageBackground, ScrollView, Text, TouchableOpacity, Feather, Image } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
 import { color } from 'react-native-reanimated';
 
