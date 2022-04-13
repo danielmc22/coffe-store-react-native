@@ -60,12 +60,13 @@ const usersActions = {
         // console.log(userEmail)
         return async (dispatch, getState) => {
             try {
-                const res = await axios.post(`https://macchiatoapp.herokuapp.com/api/auth/signOut`, { userEmail })
+                // const res = await axios.post(`https://macchiatoapp.herokuapp.com/api/auth/signOut`, { userEmail })
                 AsyncStorage.removeItem("token")
                 dispatch({
                     type: "userSignOut", payLoad: {
                         view: true,
-                        message: res.data.message
+                        // message: res.data.message
+                        message: " chau chau adios"
                     }
                 })
 
