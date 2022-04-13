@@ -28,8 +28,8 @@ export default CardShop
 const Styles = StyleSheet.create({
     card:{
         backgroundColor: 'green',
-        width:'98%',
-        height:'3%',
+        width:'100%',
+        height:170,
         display: 'flex',
         justifyContent: 'space-around',
         flexDirection: 'row',
