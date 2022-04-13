@@ -90,8 +90,7 @@ const FormSignUp = (props) => {
                         fontSize={15}
                         color="#fff"
                         marginBottom={10}
-
-
+                        secureTextEntry={true}
                         onChangeText={(text) => { setSignUp({ ...signUp, password: text }) }}
 
                     />

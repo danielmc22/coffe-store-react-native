@@ -14,6 +14,8 @@ import userAction from "../../redux/actions/userAction"
 import { useEffect, useState } from 'react';
 import CustomDrawer from "../components/DrawerCustom"
 
+import Shop from '../screens/Shop';
+
 
 import AboutUs from '../screens/aboutUs';
 
@@ -57,6 +59,7 @@ function DrawerNavigator(props) {
       <Drawer.Screen name="Open" component={OpenPag} />
       <Drawer.Screen name="Home" component={Home} />
       <Drawer.Screen name="AboutUs" component={AboutUs} />
+      <Drawer.Screen name="Shop" component={Shop}/>
       <Drawer.Screen name="SignIn" component={FormSignIn} />
       <Drawer.Screen name="SignUp" component={FormSignUp} />
     </Drawer.Navigator>
