@@ -6,12 +6,13 @@ import FormSignIn from "../screens/signInScreen"
 import FormSignUp from "../screens/signUpScreen"
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { connect } from 'react-redux';
-import AsyncStorageLib from '@react-native-async-storage/async-storage';
+import AsyncStorage, { useAsyncStorage } from '@react-native-async-storage/async-storage';
 import { version } from 'react-dom';
 import Home from '../screens/Home';
 import productActions from '../../redux/actions/productActions';
 import userAction from "../../redux/actions/userAction"
 import { useEffect, useState } from 'react';
+import CustomDrawer from "../components/DrawerCustom"
 
 
 import AboutUs from '../screens/aboutUs';
@@ -21,51 +22,49 @@ const Drawer = createDrawerNavigator();
 
 function DrawerNavigator(props) {
 
-  const [token, setToken] = useState()
-  setToken(getToken())
+  const [user, setUser] = useState(props?.user)
 
 
   useEffect(() => {
-    if (AsyncStorageLib.getItem("token") !== null) {
-      // const token = AsyncStorageLib.getItem("token")
-      console.log(token);
-      props.verifyToken(token)
-      props.verifiedRol(token || [])
-      props.iniciarAlRecargar()
-    }
+    AsyncStorage.getItem("token").then(res => console.log(res))
+    AsyncStorage.getItem("token").then(res => props.verifyToken(res))
+    AsyncStorage.getItem("token").then(res => props.verifiedRol(res))
+    setUser(props.user)
+    // console.log("user user user ");
+    // console.log(user);
+    // console.log("user user user ");
 
+    // props.verifyToken(token)
+    // props.verifiedRol(token || [])
+    // props.iniciarAlRecargar()
   }, [])
 
 
 
-  const getToken = async () => {
-    try {
-      const jsonValue = await AsyncStorage.getItem('token')
-      return jsonValue != null ? jsonValue : null;
-    } catch (e) {
-      console.log(e)
-    }
+  // const getToken = async () => {
+  //   try {
+  //     const jsonValue = await AsyncStorage.getItem('token')
+  //     return jsonValue != null ? jsonValue : null;
+  //   } catch (e) {
+  //     console.log(e)
+  //   }
+  // }
+
+
+
+  if (!props.user) {
+    return (<Text>nada por aqui</Text>)
   }
-
-
-
-
-
-
-
-
-
-
-
-
 
   return (
     <Drawer.Navigator initialRouteName="Open"
-      drawerContent={props => <CustomDrawer {...props} user={props?.user} />}
+      drawerContent={props => <CustomDrawer  {...props} />}
     >
-      {console.log("----------------------")}
-      {console.log(props.user?.email)}
-      {console.log("----------------------")}
+
+      {console.log("-----------Ususraio en redux-----------")}
+      {console.log(props.user)}
+      {console.log("-----------Fin Ususraio en redux-----------")}
+
       <Drawer.Screen name="Open" component={OpenPag} />
       <Drawer.Screen name="Home" component={Home} />
       <Drawer.Screen name="AboutUs" component={AboutUs} />
@@ -105,77 +104,91 @@ export default connect(mapStateToProps, mapDispatchToProps)(DrawerNavigator);
 
 
 
-const CustomDrawer = (props) => {
-  async function ver() {
-    console.log(await AsyncStorageLib.getItem("shop"));
-
-  }
+// const CustomDrawer = (propsHijo) => {
 
 
-  console.log("----------------------");
-  console.log(props.user);
-  console.log("----------------------");
-  // ver()
-  return (
-    <DrawerContentScrollView {...props} style={styles.container}>
-      <Text style={styles.title}> Macchiato </Text>
-      {props.user ? (
-        <Image style={styles.userImage} source={{ uri: props.user.photoURL }} />
 
-      ) : (
-        <Image style={styles.userImage} source={require("../../assets/avatar.svg")} />
+//   return (
+//     <DrawerContentScrollView {...propsHijo} style={styles.container}>
+//       {console.log("----------------------")}
+//       {console.log(props)}
+//       {console.log("----------------------")}
+//       <View>
 
-      )}
+//         {props.user ? (
+//           <View style={{ width: "100%", display: "flex", flexDirection: "row", marginBottom: 30, alignItems: "center" }}>
+//             <Image style={styles.userImage} source={{ uri: props.user.photoURL }} />
+//             <Text> {" " + props.user.name.firstName + " " + props.user.name.lastName}</Text>
+//           </View>
+//         ) : (
+//           <View style={{ width: "100%", display: "flex", flexDirection: "row", marginBottom: 30, alignItems: "center" }}>
+//             <Image style={styles.userImage} source={require("../../assets/avatar.png")} />
+//             <Text> Disconnected</Text>
+//           </View>
+//         )}
+
+//       </View>
+//       <Text style={styles.title}> Macchiato </Text>
 
 
-      <TouchableOpacity style={styles.buttonContainer} name="Open" onPress={() => props.navigation.navigate("Open")} >
-        <Text style={styles.textButtom}> Open</Text>
-      </TouchableOpacity>
+//       <TouchableOpacity style={styles.buttonContainer} name="Open" onPress={() => props.navigation.navigate("Open")} >
+//         <Text style={styles.textButtom}> Open</Text>
+//       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.buttonContainer} name="Home" onPress={() => props.navigation.navigate("Home")} >
-        <Text style={styles.textButtom}> Home</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.buttonContainer} name="AboutUs" onPress={() => props.navigation.navigate("AboutUs")} >
-        <Text style={styles.textButtom}> About Us</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.buttonContainer} name="Shop" onPress={() => props.navigation.navigate("Shop")} >
-        <Text style={styles.textButtom}> Shop</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.buttonContainer} name="SignIn" onPress={() => props.navigation.navigate("SignIn")} >
-        <Text style={styles.textButtom}> Sign In</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.buttonContainer} name="SignUp" onPress={() => props.navigation.navigate("SignUp")} >
-        <Text style={styles.textButtom}> Sign Up</Text>
-      </TouchableOpacity>
-    </DrawerContentScrollView>
-  );
-};
+//       <TouchableOpacity style={styles.buttonContainer} name="Home" onPress={() => props.navigation.navigate("Home")} >
+//         <Text style={styles.textButtom}> Home</Text>
+//       </TouchableOpacity>
+//       <TouchableOpacity style={styles.buttonContainer} name="AboutUs" onPress={() => props.navigation.navigate("AboutUs")} >
+//         <Text style={styles.textButtom}> About Us</Text>
+//       </TouchableOpacity>
+//       <TouchableOpacity style={styles.buttonContainer} name="Shop" onPress={() => props.navigation.navigate("Shop")} >
+//         <Text style={styles.textButtom}> Shop</Text>
+//       </TouchableOpacity>
+//       <TouchableOpacity style={styles.buttonContainer} name="SignIn" onPress={() => props.navigation.navigate("SignIn")} >
+//         <Text style={styles.textButtom}> Sign In</Text>
+//       </TouchableOpacity>
+//       <TouchableOpacity style={styles.buttonContainer} name="SignUp" onPress={() => props.navigation.navigate("SignUp")} >
+//         <Text style={styles.textButtom}> Sign Up</Text>
+//       </TouchableOpacity>
+//     </DrawerContentScrollView>
+//   );
 
-const styles = ({
-  container: {
-    padding: 15,
-    backgroundColor: '#fff',
-  },
 
-  title: {
-    fontSize: 20,
-    fontWeight: "bold",
-    marginBottom: 20,
-    color: '#1d1d1d',
-  },
-  buttonContainer: {
-    backgroundColor: '#1d1d1d',
-    marginBottom: 15,
-    borderRadius: 10,
-    padding: 15,
 
-  },
-  textButtom: {
-    color: '#a06235',
-  },
-  userImage: {
-    width: 50,
-    height: 50,
-    backgroundColor: "grey"
-  }
-});
+
+// };
+
+// const styles = ({
+//   container: {
+//     padding: 15,
+//     backgroundColor: '#fff',
+//   },
+
+//   title: {
+//     fontSize: 20,
+//     fontWeight: "bold",
+//     marginBottom: 20,
+//     color: '#1d1d1d',
+//     marginBottom: 40,
+//     textAlign: "center"
+//   },
+//   buttonContainer: {
+//     backgroundColor: '#1d1d1d',
+//     marginBottom: 15,
+//     borderRadius: 10,
+//     padding: 15,
+
+//   },
+//   textButtom: {
+//     color: '#a06235',
+//     fontWeight: "900",
+//     fontSize: 20
+//   },
+//   userImage: {
+//     width: 50,
+//     height: 50,
+//     backgroundColor: "rgba(39, 37, 37, 0.849)",
+//     borderRadius: 50,
+//     padding: 15
+//   }
+// });

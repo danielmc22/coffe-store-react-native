@@ -126,7 +126,7 @@ const productActions = {
         }
     },
     iniciarAlRecargar: () => {
-        let datosCart = getData()
+        let datosCart = getData
 
 
         // let datosCart = JSON.parse(AsyncStorage.getItem("shopCart"))
@@ -144,7 +144,7 @@ export default productActions;
 const getData = async () => {
     try {
         const jsonValue = await AsyncStorage.getItem('shopCart')
-        return jsonValue != null ? JSON.parse(jsonValue) : null;
+        return jsonValue != null ? JSON.parse(jsonValue) : [];
     } catch (e) {
        console.log(e)
     }
