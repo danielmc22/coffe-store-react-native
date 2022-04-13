@@ -99,7 +99,9 @@ const CustomDrawer = (props) => {
       )}
 
 
-
+      <TouchableOpacity style={styles.buttonContainer} name="Open" onPress={() => props.navigation.navigate("Open")} >
+        <Text style={styles.textButtom}> Open</Text>
+      </TouchableOpacity>
 
       <TouchableOpacity style={styles.buttonContainer} name="Home" onPress={() => props.navigation.navigate("Home")} >
         <Text style={styles.textButtom}> Home</Text>
