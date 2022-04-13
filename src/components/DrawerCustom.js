@@ -11,11 +11,6 @@ import { version } from 'react-dom';
 import Home from '../screens/Home';
 import productActions from '../../redux/actions/productActions';
 import userAction from "../../redux/actions/userAction"
-import {
-    Dropdown
-}
-    from 'react-native-material-dropdown';
-
 
 
 
