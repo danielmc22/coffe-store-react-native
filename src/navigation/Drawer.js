@@ -22,33 +22,26 @@ const Drawer = createDrawerNavigator();
 
 function DrawerNavigator(props) {
 
-  const [user, setUser] = useState(props?.user)
+  // const [user, setUser] = useState(props?.user)
 
 
   useEffect(() => {
-    AsyncStorage.getItem("token").then(res => console.log(res))
+    let tokenP= ""
+    AsyncStorage.getItem("token").then(res => {
+      console.log(res)
+    
+    })
     AsyncStorage.getItem("token").then(res => props.verifyToken(res))
     AsyncStorage.getItem("token").then(res => props.verifiedRol(res))
-    setUser(props.user)
+    // setUser(props.user)
     // console.log("user user user ");
     // console.log(user);
     // console.log("user user user ");
 
-    // props.verifyToken(token)
-    // props.verifiedRol(token || [])
-    // props.iniciarAlRecargar()
+
   }, [])
 
 
-
-  // const getToken = async () => {
-  //   try {
-  //     const jsonValue = await AsyncStorage.getItem('token')
-  //     return jsonValue != null ? jsonValue : null;
-  //   } catch (e) {
-  //     console.log(e)
-  //   }
-  // }
 
 
 
