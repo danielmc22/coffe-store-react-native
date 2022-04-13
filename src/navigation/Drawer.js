@@ -14,6 +14,8 @@ import userAction from "../../redux/actions/userAction"
 import { useEffect, useState } from 'react';
 
 
+import AboutUs from '../screens/aboutUs';
+
 
 const Drawer = createDrawerNavigator();
 
@@ -66,6 +68,7 @@ function DrawerNavigator(props) {
       {console.log("----------------------")}
       <Drawer.Screen name="Open" component={OpenPag} />
       <Drawer.Screen name="Home" component={Home} />
+      <Drawer.Screen name="AboutUs" component={AboutUs} />
       <Drawer.Screen name="SignIn" component={FormSignIn} />
       <Drawer.Screen name="SignUp" component={FormSignUp} />
     </Drawer.Navigator>
@@ -125,10 +128,15 @@ const CustomDrawer = (props) => {
       )}
 
 
-
-
       <TouchableOpacity style={styles.buttonContainer} name="Open" onPress={() => props.navigation.navigate("Open")} >
         <Text style={styles.textButtom}> Open</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity style={styles.buttonContainer} name="Home" onPress={() => props.navigation.navigate("Home")} >
+        <Text style={styles.textButtom}> Home</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.buttonContainer} name="AboutUs" onPress={() => props.navigation.navigate("AboutUs")} >
+        <Text style={styles.textButtom}> About Us</Text>
       </TouchableOpacity>
       <TouchableOpacity style={styles.buttonContainer} name="Shop" onPress={() => props.navigation.navigate("Shop")} >
         <Text style={styles.textButtom}> Shop</Text>
