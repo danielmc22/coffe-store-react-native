@@ -62,7 +62,7 @@ const productActions = {
                     success: res.data.success
                 }
             })
-            
+
         }
     },
     modifyProduct: (objProd, id) => {
@@ -100,7 +100,7 @@ const productActions = {
                     success: res.data.success
                 }
             })
-            
+
         }
     },
     addToCart: (id) => {
@@ -126,7 +126,10 @@ const productActions = {
         }
     },
     iniciarAlRecargar: () => {
-        let datosCart = AsyncStorage.getItem("shopCart")
+        let datosCart = getData()
+
+
+        // let datosCart = JSON.parse(AsyncStorage.getItem("shopCart"))
 
         return async (dispatch, getState) => {
             dispatch({ type: "iniciarAlRecargar", payload: datosCart })
@@ -135,3 +138,14 @@ const productActions = {
 }
 
 export default productActions;
+
+
+
+const getData = async () => {
+    try {
+        const jsonValue = await AsyncStorage.getItem('shopCart')
+        return jsonValue != null ? JSON.parse(jsonValue) : null;
+    } catch (e) {
+       console.log(e)
+    }
+}

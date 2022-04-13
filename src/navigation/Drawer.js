@@ -11,7 +11,7 @@ import { version } from 'react-dom';
 import Home from '../screens/Home';
 import productActions from '../../redux/actions/productActions';
 import userAction from "../../redux/actions/userAction"
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 
 
@@ -19,20 +19,47 @@ const Drawer = createDrawerNavigator();
 
 function DrawerNavigator(props) {
 
+  const [token, setToken] = useState()
+  setToken(getToken())
+
 
   useEffect(() => {
     if (AsyncStorageLib.getItem("token") !== null) {
-      const token = AsyncStorageLib.getItem("token")
+      // const token = AsyncStorageLib.getItem("token")
+      console.log(token);
       props.verifyToken(token)
-      props.verifiedRol(AsyncStorageLib.getItem("token"))
-      // .then(res => setAuthorized(res))
+      props.verifiedRol(token || [])
       props.iniciarAlRecargar()
     }
 
   }, [])
+
+
+
+  const getToken = async () => {
+    try {
+      const jsonValue = await AsyncStorage.getItem('token')
+      return jsonValue != null ? jsonValue : null;
+    } catch (e) {
+      console.log(e)
+    }
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
   return (
     <Drawer.Navigator initialRouteName="Open"
-      drawerContent={props => <CustomDrawer {...props} user={props.user} />}
+      drawerContent={props => <CustomDrawer {...props} user={props?.user} />}
     >
       {console.log("----------------------")}
       {console.log(props.user?.email)}
@@ -54,7 +81,7 @@ const mapStateToProps = (state) => {
     cart: state.productReducer.cart,
     user: state.userReducer.user,
     authorized: state.userReducer.authorized
-    
+
   }
 }
 
@@ -62,7 +89,7 @@ const mapDispatchToProps = {
   signOut: userAction.signOut,
   verifyToken: userAction.verifyToken,
   verifiedRol: userAction.verifiedRol,
-  iniciarAlRecargar: productActions.iniciarAlRecargar
+  //  /* iniciarAlRecargar: productActions.iniciarAlRecargar*/
 
 }
 export default connect(mapStateToProps, mapDispatchToProps)(DrawerNavigator);
@@ -77,14 +104,14 @@ export default connect(mapStateToProps, mapDispatchToProps)(DrawerNavigator);
 
 const CustomDrawer = (props) => {
   async function ver() {
-    console.log(await AsyncStorageLib.getItem("token"));
+    console.log(await AsyncStorageLib.getItem("shop"));
 
   }
 
 
   console.log("----------------------");
-  // console.log(props);
-  // console.log("----------------------");
+  console.log(props.user);
+  console.log("----------------------");
   // ver()
   return (
     <DrawerContentScrollView {...props} style={styles.container}>
