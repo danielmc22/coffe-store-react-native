@@ -32,7 +32,6 @@ const FormSignIn = (props) => {
             {/* {console.log("-------------------------------------------------------------------")} */}
             {/* {console.log(props.user.email)} */}
             {/* {console.log("-------------------------------------------------------------------")} */}
-
             <View style={{ backgroundColor: "#f3a446", width: '90%', minHeight: 300, alignSelf: 'center', borderRadius: 10 }}>
                 <Text style={{ fontSize: 28, fontWeight: 'bold', textAlign: 'center', fontFamily: 'serif', paddingTop: 20, color: 'black', textShadowColor: '#17F5F9', marginBottom: 30 }}>
                     Sign In

@@ -26,29 +26,22 @@ function DrawerNavigator(props) {
 
 
   useEffect(() => {
-    AsyncStorage.getItem("token").then(res => console.log(res))
-    AsyncStorage.getItem("token").then(res => props.verifyToken(res))
-    AsyncStorage.getItem("token").then(res => props.verifiedRol(res))
+    AsyncStorage.getItem("token").then(res => {
+      console.log(res)
+      if (res) {
+        AsyncStorage.getItem("token").then(res => props.verifyToken(res) || [])
+        AsyncStorage.getItem("token").then(res => props.verifiedRol(res) || [])
+      }
+    })
     setUser(props.user)
     // console.log("user user user ");
     // console.log(user);
     // console.log("user user user ");
 
-    // props.verifyToken(token)
-    // props.verifiedRol(token || [])
-    // props.iniciarAlRecargar()
+
   }, [])
 
 
-
-  // const getToken = async () => {
-  //   try {
-  //     const jsonValue = await AsyncStorage.getItem('token')
-  //     return jsonValue != null ? jsonValue : null;
-  //   } catch (e) {
-  //     console.log(e)
-  //   }
-  // }
 
 
 

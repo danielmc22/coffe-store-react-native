@@ -24,14 +24,14 @@ const usersActions = {
         }
     },
     signIn: (objUser) => {
-        // console.log("----------_________-------------");
-        // console.log(objUser);
+        console.log("----------_________-------------");
+        console.log(objUser);
         return async (dispatch, getState) => {
             try {
                 const res = await axios.post(`https://macchiatoapp.herokuapp.com/api/auth/signIn`, { objUser })
                 console.log(res.data);
                 if (res.data.success) {
-                    AsyncStorage.setItem("token", res.data.response.token)
+                    // AsyncStorage.setItem("token", res.data.response.token)
                     dispatch({ type: "user", payLoad: res.data })
                     dispatch({
                         type: "message", payLoad: {
@@ -77,6 +77,9 @@ const usersActions = {
         }
     },
     verifyToken: (token) => {
+        console.log("esto es el token -------------------------------------qwrfsgfshddfsdfasd");
+        console.log(token);
+        console.log("esto es el token -------------------------------------qwrfsgfshddfsdfasd");
         return async (dispatch, getState) => {
             try {
 
