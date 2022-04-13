@@ -52,10 +52,6 @@ function DrawerNavigator(props) {
 
 
 
-  if (!props.user) {
-    return (<Text>nada por aqui</Text>)
-  }
-
   return (
     <Drawer.Navigator initialRouteName="Open"
       drawerContent={props => <CustomDrawer  {...props} />}
