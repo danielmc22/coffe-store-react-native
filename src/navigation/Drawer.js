@@ -13,10 +13,7 @@ import productActions from '../../redux/actions/productActions';
 import userAction from "../../redux/actions/userAction"
 import { useEffect, useState } from 'react';
 import CustomDrawer from "../components/DrawerCustom"
-
 import Shop from '../screens/Shop';
-
-
 import AboutUs from '../screens/aboutUs';
 
 

@@ -10,6 +10,6 @@ function StoreNavigator() {
     >
       <Stack.Screen name='' component={""}
         options={{ headerShown: false, }} />
-    </Stack.Navigator >
+    </Stack.Navigator>
   )
 }
