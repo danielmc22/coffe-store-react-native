@@ -3,6 +3,7 @@ import { View, Text, TouchableOpacity, StyleSheet, TextInput, Picker, ScrollView
 import productActions from "../../redux/actions/productActions"
 import { connect } from 'react-redux';
 import CardShop from '../components/CardShop';
+// import {Picker} from "@react-native-picker/picker"
 
 const categories = [{ name: "Coffees", }, { name: "Coffee maker", }, { name: "Accessories", }, { name: "Barista tools", }]
 function Shop(props) {
