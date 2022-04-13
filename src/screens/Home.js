@@ -1,4 +1,4 @@
-import React,{useEffect} from 'react'
+import React, { useEffect } from 'react'
 import { Button, Image, View, ImageBackground, ScrollView, Text, TouchableOpacity, Feather } from 'react-native';
 import productActions from "../../redux/actions/productActions"
 import { connect } from 'react-redux';
@@ -8,12 +8,12 @@ function HomePag(props) {
 
   useEffect(() => {
 
-    if(!props.allProducts){
+    if (!props.allProducts) {
 
       props.getAllProducts()
     }
 
-}, [])
+  }, [])
   return (
     <ScrollView>
       <ImageBackground source={{ uri: 'https://i.ibb.co/2gHfJjq/Fondo-App-Macchiato-2.jpg' }} style={{ width: "100%", minHeight: 1000 }}>
@@ -63,7 +63,7 @@ function HomePag(props) {
         </View>
 
         <View style={{ display: 'flex', height: 80, width: '100%', flexDirection: 'column', alignContent: 'center', alignItems: 'center' }}>
-          <Text style={{ color: "#efeefe", fontSize: 32, marginTop: 16, borderBottomColor: '#fff', borderBottomWidth: 3, paddingBottom: 5 }}>Our items categories</Text>
+          <Text style={{ color: "#efeefe", fontSize: 32, marginTop: 16, borderBottomColor: '#fff', borderBottomWidth: 3, paddingBottom: 5 }}>Items categories</Text>
         </View>
 
         <View style={{ display: 'flex', minHeight: 80, width: '100%', flexDirection: 'column', alignContent: 'center', alignItems: 'center', marginTop: 30 }}>
@@ -80,7 +80,7 @@ function HomePag(props) {
           <Text style={{ color: "#efeefe", fontSize: 20, }}>Coffee courses</Text>
           <Text style={{ color: "#efefefad", fontSize: 18, marginTop: 8, width: "70%", textAlign: "center" }}>At Macchiato we have an educational system for baristas</Text>
         </View>
-        <Carusel/>
+        <Carusel />
       </ImageBackground>
     </ScrollView>
   )
