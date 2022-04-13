@@ -39,12 +39,12 @@ function Shop(props) {
                     ><Text style={{ color: '#000', fontSize: 18, textAlign: 'center' }}>If you want to know more about us click here</Text></TouchableOpacity>
                 </View>
                 <View style={{
-                    height: 200,
+                    height: 600,
                     display: 'flex',
                     flexDirection: 'column',
                     overflow: "hidden",
                 }}>
-                    <ImageBackground source={{ uri: 'https://images.unsplash.com/photo-1596098823457-74e360fcd023?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80' }} style={{
+                    <ImageBackground source={require('../../assets/shop.jpg')} style={{
                         width: '100%',
                         height: '100%',
                         display: 'flex',
