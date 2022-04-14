@@ -6,8 +6,14 @@ import { color } from 'react-native-reanimated';
 import { AntDesign } from '@expo/vector-icons';
 
 
+
 function CardShop(props) {
+
+        console.log(props.navigation)
+
     return (
+         <TouchableOpacity
+                        onPress={()=>props.navigation.navigate ('Detalle', {id: props.product._id})}> 
         <View style={Styles.card}>
 
             <Image
@@ -24,6 +30,7 @@ function CardShop(props) {
                 </TouchableOpacity>
             </View>
         </View>
+         </TouchableOpacity> 
     )
 }
 

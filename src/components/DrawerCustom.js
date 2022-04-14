@@ -10,12 +10,7 @@ import userAction from "../../redux/actions/userAction"
 import { Feather } from '@expo/vector-icons';
 
 
-
-
-
 const CustomDrawer = (props, propsHijo) => {
-
-
 
     return (
         <DrawerContentScrollView {...propsHijo} style={styles.container}>

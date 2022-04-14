@@ -8,8 +8,6 @@ import CardShop from '../components/CardShop';
 const categories = [{ name: "Coffees", }, { name: "Coffee maker", }, { name: "Accessories", }, { name: "Barista tools", }]
 
 
-
-
 function Shop(props) {
 
     const [eventInput, setEventInput] = useState("");
@@ -32,7 +30,7 @@ function Shop(props) {
 
     return (
         <ScrollView>
-            <ImageBackground source={{ uri: 'https://i.ibb.co/2gHfJjq/Fondo-App-Macchiato-2.jpg' }} style={{ width: "100%", minHeight: 1000, display: 'flex' }}>
+            <ImageBackground  style={{backgroundColor:"black", width: "100%", minHeight: 1000, display: 'flex' }}>
                 <View style={{ width: '100%', height: 30, backgroundColor: "#F3A446", marginVertical: 20 }}>
                     <TouchableOpacity
                         onPress={() => props.navigation.navigate('AboutUs')}
@@ -89,7 +87,7 @@ function Shop(props) {
                 <View style={styles.containerCards}>
                     <ScrollView style={styles.scrollViewShop}>
                         {props.filtered.map((product) =>
-                            <CardShop product={product} key={product._id} />
+                            <CardShop product={product} key={product._id} navigation={props.navigation} />
                         )}
                     </ScrollView>
                 </View>

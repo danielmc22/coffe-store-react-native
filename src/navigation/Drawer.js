@@ -16,6 +16,7 @@ import { Ionicons } from '@expo/vector-icons';
 import AboutUs from '../screens/aboutUs';
 import StoreNavigator from "../navigation/Stack"
 import CartShop from '../components/CartShop';
+import Detalle from "../components/details"
 
 
 const Drawer = createDrawerNavigator();
