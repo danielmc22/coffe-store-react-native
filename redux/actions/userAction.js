@@ -78,9 +78,9 @@ const usersActions = {
         }
     },
     verifyToken: (token) => {
-        console.log("esto es el token -------------------------------------qwrfsgfshddfsdfasd");
-        console.log(token);
-        console.log("esto es el token -------------------------------------qwrfsgfshddfsdfasd");
+        // console.log("esto es el token -------------------------------------qwrfsgfshddfsdfasd");
+        // console.log(token);
+        // console.log("esto es el token -------------------------------------qwrfsgfshddfsdfasd");
         return async (dispatch, getState) => {
             try {
 

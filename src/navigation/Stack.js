@@ -6,10 +6,10 @@ const Stack = createStackNavigator();
 
 function StoreNavigator() {
   return (
-    <Stack.Navigator initialRouteName='Store'
+    <Stack.Navigator initialRouteName='StoreComp'
       screenOptions={{ headerBackTitle: "Back" }}
     >
-      <Stack.Screen name='Store' component={Shop}
+      <Stack.Screen name='StoreComp' component={Shop}
         options={{ headerShown: false, }} />
       <Stack.Screen name='Detalle' component={Shop}
         options={{ headerShown: true, }} />

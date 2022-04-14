@@ -6,8 +6,6 @@ import FormSignIn from "../screens/signInScreen"
 import FormSignUp from "../screens/signUpScreen"
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { connect } from 'react-redux';
-
-
 import userAction from "../../redux/actions/userAction"
 import { Feather } from '@expo/vector-icons';
 
@@ -21,9 +19,9 @@ const CustomDrawer = (props, propsHijo) => {
 
     return (
         <DrawerContentScrollView {...propsHijo} style={styles.container}>
-            {console.log("----------------------")}
+            {/* {console.log("----------------------")}
             {console.log(props.user)}
-            {console.log("----------------------")}
+            {console.log("----------------------")} */}
             <View>
 
                 {props.user ? (
@@ -67,6 +65,9 @@ const CustomDrawer = (props, propsHijo) => {
             </TouchableOpacity>
             <TouchableOpacity style={styles.buttonContainer} name="Store" onPress={() => props.navigation.navigate("Store")} >
                 <Text style={styles.textButtom}> Shop</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.buttonContainer} name="CartShop" onPress={() => props.navigation.navigate("CartShop")} >
+                <Text style={styles.textButtom}> Cart</Text>
             </TouchableOpacity>
         </DrawerContentScrollView>
     );

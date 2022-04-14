@@ -14,7 +14,7 @@ const productReducer = (state = initialState, action) => {
             return {
                 ...state,
                 allProducts: action.payload,
-                filtered: action.payload,
+                filtered: action.payload.filter((item) => item.category.includes("Coffee")),
             };
         case 'get_one_product':
             return {
@@ -27,6 +27,9 @@ const productReducer = (state = initialState, action) => {
                 filtered: action.payload
             }
         case "iniciarAlRecargar":
+            // console.log("???DAtoslocal???????????????????????");
+            // console.log(action.payload);
+            // console.log("???DAtoslocal???????????????????????");
             return {
                 ...state,
                 cart: [...action.payload]
