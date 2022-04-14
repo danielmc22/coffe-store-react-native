@@ -7,16 +7,20 @@ import FormSignUp from "../screens/signUpScreen"
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { connect } from 'react-redux';
 import AsyncStorage, { useAsyncStorage } from '@react-native-async-storage/async-storage';
-import { version } from 'react-dom';
 import Home from '../screens/Home';
 import productActions from '../../redux/actions/productActions';
 import userAction from "../../redux/actions/userAction"
-import { useEffect } from 'react';
+import { useEffect, useLayoutEffect } from 'react';
 import CustomDrawer from "../components/DrawerCustom"
-import Shop from '../screens/Shop';
+import { Ionicons } from '@expo/vector-icons';
 import AboutUs from '../screens/aboutUs';
 import StoreNavigator from "../navigation/Stack"
+<<<<<<< HEAD
 import CartBuy from '../screens/Cart';
+=======
+import CartShop from '../components/CartShop';
+
+>>>>>>> 8df4f739185b35fbad6c9856aa2f31770b6e758a
 
 const Drawer = createDrawerNavigator();
 
@@ -26,13 +30,14 @@ function DrawerNavigator(props) {
 
 
   useEffect(() => {
-    let tokenP = ""
-    AsyncStorage.getItem("token").then(res => {
-      console.log(res)
+    // let tokenP = ""
+    // AsyncStorage.getItem("token").then(res => {
+    //   console.log(res)
 
-    })
+    // })
     AsyncStorage.getItem("token").then(res => props.verifyToken(res))
     AsyncStorage.getItem("token").then(res => props.verifiedRol(res))
+    getData().then(res => props.iniciarAlRecargar(res))
     // setUser(props.user)
     // console.log("user user user ");
     // console.log(user);
@@ -42,18 +47,27 @@ function DrawerNavigator(props) {
   }, [])
 
 
-
+  const getData = async () => {
+    try {
+      const jsonValue = await AsyncStorage.getItem('shopCart')
+      return jsonValue != null ? JSON.parse(jsonValue) : [];
+    } catch (e) {
+      console.log(e)
+    }
+  }
 
 
   return (
     <Drawer.Navigator initialRouteName="Open"
       drawerContent={props => <CustomDrawer  {...props} />}
+
     >
 
-      {console.log("-----------Ususraio en redux-----------")}
+      {/* {console.log("-----------Ususraio en redux-----------")}
       {console.log(props.user)}
-      {console.log("-----------Fin Ususraio en redux-----------")}
+      {console.log("-----------Fin Ususraio en redux-----------")} */}
 
+<<<<<<< HEAD
       <Drawer.Screen name="Open" component={OpenPag} />
       <Drawer.Screen name="Home" component={Home} />
       {/* <Drawer.Screen name="Store" component={Shop} /> */}
@@ -62,6 +76,21 @@ function DrawerNavigator(props) {
       <Drawer.Screen name="StoreNavigator" component={StoreNavigator} />
       <Drawer.Screen name="SignIn" component={FormSignIn} />
       <Drawer.Screen name="SignUp" component={FormSignUp} />
+=======
+      <Drawer.Screen options={{ headerRight: (props) => <Ionicons onPress={() => props.navigator.navigate("CartShop")} {...props} name="cart" size={24} color="black" /> }}
+        name="Open" component={OpenPag} />
+      <Drawer.Screen options={{ headerRight: (props) => <Ionicons onPress={() => props.navigator.navigate("CartShop")} {...props} name="cart" size={24} color="black" /> }}
+        name="Home" component={Home} />
+      <Drawer.Screen options={{ headerRight: (props) => <Ionicons {...props} name="cart" size={24} color="black" /> }}
+        name="AboutUs" component={AboutUs} />
+      <Drawer.Screen options={{ headerRight: (props) => <Ionicons {...props} name="cart" size={24} color="black" /> }}
+        name="Store" component={StoreNavigator} />
+      <Drawer.Screen options={{ headerRight: (props) => <Ionicons {...props} name="cart" size={24} color="black" /> }}
+        name="SignIn" component={FormSignIn} />
+      <Drawer.Screen options={{ headerRight: (props) => <Ionicons {...props} name="cart" size={24} color="black" /> }}
+        name="SignUp" component={FormSignUp} />
+      <Drawer.Screen name={"CartShop"} component={CartShop} />
+>>>>>>> 8df4f739185b35fbad6c9856aa2f31770b6e758a
     </Drawer.Navigator>
   )
 }
@@ -83,104 +112,9 @@ const mapDispatchToProps = {
   signOut: userAction.signOut,
   verifyToken: userAction.verifyToken,
   verifiedRol: userAction.verifiedRol,
-  //  /* iniciarAlRecargar: productActions.iniciarAlRecargar*/
+  iniciarAlRecargar: productActions.iniciarAlRecargar
 
 }
 export default connect(mapStateToProps, mapDispatchToProps)(DrawerNavigator);
 
 
-
-
-
-
-
-
-
-// const CustomDrawer = (propsHijo) => {
-
-
-
-//   return (
-//     <DrawerContentScrollView {...propsHijo} style={styles.container}>
-//       {console.log("----------------------")}
-//       {console.log(props)}
-//       {console.log("----------------------")}
-//       <View>
-
-//         {props.user ? (
-//           <View style={{ width: "100%", display: "flex", flexDirection: "row", marginBottom: 30, alignItems: "center" }}>
-//             <Image style={styles.userImage} source={{ uri: props.user.photoURL }} />
-//             <Text> {" " + props.user.name.firstName + " " + props.user.name.lastName}</Text>
-//           </View>
-//         ) : (
-//           <View style={{ width: "100%", display: "flex", flexDirection: "row", marginBottom: 30, alignItems: "center" }}>
-//             <Image style={styles.userImage} source={require("../../assets/avatar.png")} />
-//             <Text> Disconnected</Text>
-//           </View>
-//         )}
-
-//       </View>
-//       <Text style={styles.title}> Macchiato </Text>
-
-
-//       <TouchableOpacity style={styles.buttonContainer} name="Open" onPress={() => props.navigation.navigate("Open")} >
-//         <Text style={styles.textButtom}> Open</Text>
-//       </TouchableOpacity>
-
-//       <TouchableOpacity style={styles.buttonContainer} name="Home" onPress={() => props.navigation.navigate("Home")} >
-//         <Text style={styles.textButtom}> Home</Text>
-//       </TouchableOpacity>
-//       <TouchableOpacity style={styles.buttonContainer} name="AboutUs" onPress={() => props.navigation.navigate("AboutUs")} >
-//         <Text style={styles.textButtom}> About Us</Text>
-//       </TouchableOpacity>
-//       <TouchableOpacity style={styles.buttonContainer} name="Shop" onPress={() => props.navigation.navigate("Shop")} >
-//         <Text style={styles.textButtom}> Shop</Text>
-//       </TouchableOpacity>
-//       <TouchableOpacity style={styles.buttonContainer} name="SignIn" onPress={() => props.navigation.navigate("SignIn")} >
-//         <Text style={styles.textButtom}> Sign In</Text>
-//       </TouchableOpacity>
-//       <TouchableOpacity style={styles.buttonContainer} name="SignUp" onPress={() => props.navigation.navigate("SignUp")} >
-//         <Text style={styles.textButtom}> Sign Up</Text>
-//       </TouchableOpacity>
-//     </DrawerContentScrollView>
-//   );
-
-
-
-
-// };
-
-// const styles = ({
-//   container: {
-//     padding: 15,
-//     backgroundColor: '#fff',
-//   },
-
-//   title: {
-//     fontSize: 20,
-//     fontWeight: "bold",
-//     marginBottom: 20,
-//     color: '#1d1d1d',
-//     marginBottom: 40,
-//     textAlign: "center"
-//   },
-//   buttonContainer: {
-//     backgroundColor: '#1d1d1d',
-//     marginBottom: 15,
-//     borderRadius: 10,
-//     padding: 15,
-
-//   },
-//   textButtom: {
-//     color: '#a06235',
-//     fontWeight: "900",
-//     fontSize: 20
-//   },
-//   userImage: {
-//     width: 50,
-//     height: 50,
-//     backgroundColor: "rgba(39, 37, 37, 0.849)",
-//     borderRadius: 50,
-//     padding: 15
-//   }
-// });

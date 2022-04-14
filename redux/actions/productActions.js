@@ -105,7 +105,7 @@ const productActions = {
     },
     addToCart: (id) => {
         return async (dispatch, getState) => {
-            console.log(id);
+            // console.log(id);
             dispatch({ type: "addToCart", payload: id })
         }
     },
@@ -125,14 +125,9 @@ const productActions = {
             dispatch({ type: "emptyCart" })
         }
     },
-    iniciarAlRecargar: () => {
-        let datosCart = getData
-
-
-        // let datosCart = JSON.parse(AsyncStorage.getItem("shopCart"))
-
+    iniciarAlRecargar: (data) => {
         return async (dispatch, getState) => {
-            dispatch({ type: "iniciarAlRecargar", payload: datosCart })
+            dispatch({ type: "iniciarAlRecargar", payload: data })
         }
     }
 }
@@ -140,12 +135,3 @@ const productActions = {
 export default productActions;
 
 
-
-const getData = async () => {
-    try {
-        const jsonValue = await AsyncStorage.getItem('shopCart')
-        return jsonValue != null ? JSON.parse(jsonValue) : [];
-    } catch (e) {
-       console.log(e)
-    }
-}

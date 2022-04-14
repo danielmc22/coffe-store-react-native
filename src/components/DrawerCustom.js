@@ -6,8 +6,6 @@ import FormSignIn from "../screens/signInScreen"
 import FormSignUp from "../screens/signUpScreen"
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { connect } from 'react-redux';
-
-
 import userAction from "../../redux/actions/userAction"
 import { Feather } from '@expo/vector-icons';
 
@@ -21,9 +19,9 @@ const CustomDrawer = (props, propsHijo) => {
 
     return (
         <DrawerContentScrollView {...propsHijo} style={styles.container}>
-            {console.log("----------------------")}
+            {/* {console.log("----------------------")}
             {console.log(props.user)}
-            {console.log("----------------------")}
+            {console.log("----------------------")} */}
             <View>
 
                 {props.user ? (
@@ -65,10 +63,18 @@ const CustomDrawer = (props, propsHijo) => {
             <TouchableOpacity style={styles.buttonContainer} name="AboutUs" onPress={() => props.navigation.navigate("AboutUs")} >
                 <Text style={styles.textButtom}> About Us </Text>
             </TouchableOpacity>
+<<<<<<< HEAD
             <TouchableOpacity style={styles.buttonContainer} name="StoreNavigator" onPress={() => props.navigation.navigate("StoreNavigator")} >
                 <Text style={styles.textButtom}> Store</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.buttonContainer} name="Cart" onPress={() => props.navigation.navigate("Cart")} >
+                <Text style={styles.textButtom}> Cart</Text>
+=======
+            <TouchableOpacity style={styles.buttonContainer} name="Store" onPress={() => props.navigation.navigate("Store")} >
+                <Text style={styles.textButtom}> Shop</Text>
+>>>>>>> 8df4f739185b35fbad6c9856aa2f31770b6e758a
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.buttonContainer} name="CartShop" onPress={() => props.navigation.navigate("CartShop")} >
                 <Text style={styles.textButtom}> Cart</Text>
             </TouchableOpacity>
         </DrawerContentScrollView>

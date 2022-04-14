@@ -43,7 +43,7 @@ function HomePag(props) {
         <View style={{ display: 'flex', height: 130, width: '100%', flexDirection: 'row', alignContent: 'center', alignItems: 'center', justifyContent: 'center', justifyContent: 'space-around', marginTop: 30 }}>
 
           <TouchableOpacity
-            onPress={() => props.navigation.navigate('StoreNavigator')}
+            onPress={() => props.navigation.navigate('Store')}
             title="Store"
             fontFamily='serif'
             style={{ alignItems: "center", justifyContent: "center", backgroundColor: "#F3A446", width: "40%", height: 60, borderRadius: 35, padding: 4 }}
