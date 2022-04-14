@@ -30,7 +30,7 @@ function Shop(props) {
 
     return (
         <ScrollView>
-            <ImageBackground  style={{backgroundColor:"black", width: "100%", minHeight: 1000, display: 'flex' }}>
+            <ImageBackground source={require('../../assets/fondo_alto.jpg')} style={{ width: "100%", minHeight: 1000, display: 'flex' }}>
                 <View style={{ width: '100%', height: 30, backgroundColor: "#F3A446", marginVertical: 20 }}>
                     <TouchableOpacity
                         onPress={() => props.navigation.navigate('AboutUs')}
@@ -49,6 +49,7 @@ function Shop(props) {
                         justifyContent: 'center',
                         alignItems: 'center',
                         opacity: 0.8,
+
 
                     }}>
                     </ImageBackground>

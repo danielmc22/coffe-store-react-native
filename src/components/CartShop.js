@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { View, Text, TouchableOpacity, StyleSheet, TextInput, Picker, ScrollView, ImageBackground, Image } from 'react-native';
 import productActions from "../../redux/actions/productActions"
 import { connect } from 'react-redux';
-import { AntDesign } from '@expo/vector-icons';
-
+import { MaterialIcons } from '@expo/vector-icons';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 
 const categories = [{ name: "Coffees", }, { name: "Coffee maker", }, { name: "Accessories", }, { name: "Barista tools", }]
@@ -28,26 +28,26 @@ function CartShop(props) {
 
     useEffect(() => {
         props.getAllProducts();
-        // console.log(props.allProducts)
     }, []);
 
     return (
 
         <View style={{ backgroundColor: "black" }}>
-            <View style={{ width: '100%', height: 30, backgroundColor: "#F3A446", marginVertical: 20 }}>
-                <TouchableOpacity
-                    onPress={() => props.navigation.navigate('AboutUs')}
-                ><Text style={{ color: '#000', fontSize: 18, textAlign: 'center' }}>If you want to know more about us click here</Text></TouchableOpacity>
-            </View>
+
             <View style={{
                 minHeight: 100,
                 display: 'flex',
                 flexDirection: 'column',
                 overflow: "hidden",
-                backgroundColor: "red"
+                borderWidth: 2,
+                borderColor: "#efeefe",
+                marginTop: 15,
+                marginBottom: 15,
+                width: '80%',
+                alignSelf: 'center'
             }}>
-                <Text style={{ color: "white", fontSize: 30, width: "100%", textAlign: "center" }}>Carrito</Text>
-                <Text style={{ color: "white", fontSize: 30, width: "100%", textAlign: "center" }}>total</Text>
+
+                <Text style={{ color: "white", fontSize: 30, width: "100%", textAlign: "center" }}>Total</Text>
 
                 <Text style={{ color: "white", fontSize: 30, width: "100%", textAlign: "center" }}>$ {
                     props.cart ? (contar()) : (0)
@@ -55,7 +55,7 @@ function CartShop(props) {
 
             </View>
             <ScrollView>
-                <ImageBackground source={{ uri: 'https://i.ibb.co/2gHfJjq/Fondo-App-Macchiato-2.jpg' }} style={{ width: "100%", minHeight: 1000, display: 'flex' }}>
+                <ImageBackground source={require('../../assets/fondo_alto.jpg')} style={{ width: "100%", minHeight: 1000, display: 'flex' }}>
 
 
                     <View style={styles.containerCards}>
@@ -67,16 +67,34 @@ function CartShop(props) {
                                         style={styles.imageCard}
                                         source={{ uri: product.image }}
                                     />
+                                    <View style={{ display: 'flex', height: 140, justifyContent: 'space-evenly' }}>
+                                        <TouchableOpacity onPress={() => props.addToCart(product._id)}>
+                                            <View>
+                                                <MaterialIcons name="add-shopping-cart" size={30} color="white" />
+                                            </View>
+                                        </TouchableOpacity>
+
+                                        <TouchableOpacity onPress={() => props.removeOneFromCart(product._id)}>
+                                            <View>
+                                                <MaterialCommunityIcons name="cart-minus" size={30} color="white" />
+                                            </View>
+                                        </TouchableOpacity>
+
+                                        <TouchableOpacity onPress={() => props.removeAllFromCart(product._id)}>
+                                            <View>
+                                                <MaterialCommunityIcons name="cart-remove" size={30} color="white" />
+                                            </View>
+                                        </TouchableOpacity>
+
+
+                                    </View>
+
                                     <View style={styles.boxInfo}>
                                         <Text style={{ color: '#efeefe', fontSize: 20, textAlign: 'center', fontWeight: 'bold' }}>{product.name}</Text>
                                         <Text style={{ color: '#efeefe', fontSize: 20, textAlign: 'center' }}>$ {product.price}</Text>
                                         <Text style={{ color: '#efeefe', fontSize: 20, textAlign: 'center' }}>X {product.quantity}u.</Text>
                                         <Text style={{ color: '#efeefe', fontSize: 20, textAlign: 'center' }}>Sub ${product.quantity * product.price}</Text>
-                                        <TouchableOpacity onPress={() => props.addToCart(product._id)}>
-                                            <View>
-                                                <AntDesign name="shoppingcart" size={30} color="white" />
-                                            </View>
-                                        </TouchableOpacity>
+
                                     </View>
                                 </View>
 

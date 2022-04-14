@@ -61,7 +61,7 @@ const productReducer = (state = initialState, action) => {
 
         case "removeOneFromCart":
 
-            let poductsStorage = JSON.parse(AsyncStorage.getItem("shopCart"))
+            let poductsStorage = JSON.parse(AsyncStorage.getItem("shopCart")) // cambiar como se obtienen los datosd esde el local sgtorage
 
             let itemDelete = poductsStorage.find(prod => prod._id === action.payload)
 
