@@ -2,10 +2,14 @@ import React,{useEffect} from 'react'
 import { Button, Image, View, ImageBackground, ScrollView, Text, TouchableOpacity, Feather, StyleSheet } from 'react-native';
 import productActions from "../../redux/actions/productActions"
 import { connect } from 'react-redux';
+import Detalle from "../screens/details"
 
 
 function CardShop(props) {
     return(
+
+        <TouchableOpacity  
+                          onPress={()=>props.navigation.navigate ('Detalle', {id: props.product._id})}> 
         <View style={Styles.card}>
             
                 <Image
@@ -20,6 +24,7 @@ function CardShop(props) {
                 </View>
             </View>
         </View>
+        </TouchableOpacity>
     )
 }
 

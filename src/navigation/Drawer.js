@@ -16,6 +16,7 @@ import CustomDrawer from "../components/DrawerCustom"
 import Shop from '../screens/Shop';
 import AboutUs from '../screens/aboutUs';
 import StoreNavigator from "../navigation/Stack"
+import Detalle from "../screens/details"
 
 
 const Drawer = createDrawerNavigator();
@@ -57,6 +58,7 @@ function DrawerNavigator(props) {
       <Drawer.Screen name="Open" component={OpenPag} />
       <Drawer.Screen name="Home" component={Home} />
       <Drawer.Screen name="AboutUs" component={AboutUs} />
+      <Drawer.Screen name="Detalle" component={Detalle} />
       <Drawer.Screen name="StoreNavigator" component={StoreNavigator} />
       <Drawer.Screen name="SignIn" component={FormSignIn} />
       <Drawer.Screen name="SignUp" component={FormSignUp} />

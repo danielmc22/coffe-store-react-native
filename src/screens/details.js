@@ -1,7 +1,7 @@
 import React, { useEffect, useLayoutEffect, useState } from 'react';
 import { Button, View, StyleSheet, Text, Image } from 'react-native';
 import { connect } from 'react-redux';
-import productActions from "../redux/actions/productActions";
+import productActions from "../../redux/actions/productActions";
 /* import Stack from '../Navigation/Stack' */
 
 const Detalle = (props) => {
