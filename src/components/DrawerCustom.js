@@ -66,7 +66,10 @@ const CustomDrawer = (props, propsHijo) => {
                 <Text style={styles.textButtom}> About Us </Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.buttonContainer} name="StoreNavigator" onPress={() => props.navigation.navigate("StoreNavigator")} >
-                <Text style={styles.textButtom}> Shop</Text>
+                <Text style={styles.textButtom}> Store</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.buttonContainer} name="Cart" onPress={() => props.navigation.navigate("Cart")} >
+                <Text style={styles.textButtom}> Cart</Text>
             </TouchableOpacity>
         </DrawerContentScrollView>
     );

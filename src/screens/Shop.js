@@ -32,7 +32,7 @@ function Shop(props) {
 
     return (
         <ScrollView>
-            <ImageBackground source={{ uri: 'https://i.ibb.co/2gHfJjq/Fondo-App-Macchiato-2.jpg' }} style={{ width: "100%", minHeight: 1000, display: 'flex' }}>
+            <ImageBackground source={require('../../assets/fondo_alto.jpg')} style={{ width: "100%", minHeight: 1000, display: 'flex' }}>
                 <View style={{ width: '100%', height: 30, backgroundColor: "#F3A446", marginVertical: 20 }}>
                     <TouchableOpacity
                         onPress={() => props.navigation.navigate('AboutUs')}
@@ -44,13 +44,14 @@ function Shop(props) {
                     flexDirection: 'column',
                     overflow: "hidden",
                 }}>
-                    <ImageBackground source={{ uri: 'https://images.unsplash.com/photo-1596098823457-74e360fcd023?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80' }} style={{
+                    <ImageBackground source={require('../../assets/Home3.png')} style={{
                         width: '100%',
                         height: '100%',
                         display: 'flex',
                         justifyContent: 'center',
                         alignItems: 'center',
                         opacity: 0.8,
+
 
                     }}>
                     </ImageBackground>
