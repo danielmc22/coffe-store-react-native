@@ -44,11 +44,7 @@ function Shop(props) {
                     flexDirection: 'column',
                     overflow: "hidden",
                 }}>
-<<<<<<< HEAD
-                    <ImageBackground source={require('../../assets/Home3.png')} style={{
-=======
                     <ImageBackground source={require('../../assets/shop.jpg')} style={{
->>>>>>> 8df4f739185b35fbad6c9856aa2f31770b6e758a
                         width: '100%',
                         height: '100%',
                         display: 'flex',

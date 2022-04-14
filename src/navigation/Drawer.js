@@ -15,12 +15,8 @@ import CustomDrawer from "../components/DrawerCustom"
 import { Ionicons } from '@expo/vector-icons';
 import AboutUs from '../screens/aboutUs';
 import StoreNavigator from "../navigation/Stack"
-<<<<<<< HEAD
-import CartBuy from '../screens/Cart';
-=======
 import CartShop from '../components/CartShop';
 
->>>>>>> 8df4f739185b35fbad6c9856aa2f31770b6e758a
 
 const Drawer = createDrawerNavigator();
 
@@ -67,16 +63,6 @@ function DrawerNavigator(props) {
       {console.log(props.user)}
       {console.log("-----------Fin Ususraio en redux-----------")} */}
 
-<<<<<<< HEAD
-      <Drawer.Screen name="Open" component={OpenPag} />
-      <Drawer.Screen name="Home" component={Home} />
-      {/* <Drawer.Screen name="Store" component={Shop} /> */}
-      <Drawer.Screen name="Cart" component={CartBuy} />
-      <Drawer.Screen name="AboutUs" component={AboutUs} />
-      <Drawer.Screen name="StoreNavigator" component={StoreNavigator} />
-      <Drawer.Screen name="SignIn" component={FormSignIn} />
-      <Drawer.Screen name="SignUp" component={FormSignUp} />
-=======
       <Drawer.Screen options={{ headerRight: (props) => <Ionicons onPress={() => props.navigator.navigate("CartShop")} {...props} name="cart" size={24} color="black" /> }}
         name="Open" component={OpenPag} />
       <Drawer.Screen options={{ headerRight: (props) => <Ionicons onPress={() => props.navigator.navigate("CartShop")} {...props} name="cart" size={24} color="black" /> }}
@@ -90,7 +76,6 @@ function DrawerNavigator(props) {
       <Drawer.Screen options={{ headerRight: (props) => <Ionicons {...props} name="cart" size={24} color="black" /> }}
         name="SignUp" component={FormSignUp} />
       <Drawer.Screen name={"CartShop"} component={CartShop} />
->>>>>>> 8df4f739185b35fbad6c9856aa2f31770b6e758a
     </Drawer.Navigator>
   )
 }

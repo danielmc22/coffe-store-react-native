@@ -63,16 +63,8 @@ const CustomDrawer = (props, propsHijo) => {
             <TouchableOpacity style={styles.buttonContainer} name="AboutUs" onPress={() => props.navigation.navigate("AboutUs")} >
                 <Text style={styles.textButtom}> About Us </Text>
             </TouchableOpacity>
-<<<<<<< HEAD
-            <TouchableOpacity style={styles.buttonContainer} name="StoreNavigator" onPress={() => props.navigation.navigate("StoreNavigator")} >
-                <Text style={styles.textButtom}> Store</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.buttonContainer} name="Cart" onPress={() => props.navigation.navigate("Cart")} >
-                <Text style={styles.textButtom}> Cart</Text>
-=======
             <TouchableOpacity style={styles.buttonContainer} name="Store" onPress={() => props.navigation.navigate("Store")} >
                 <Text style={styles.textButtom}> Shop</Text>
->>>>>>> 8df4f739185b35fbad6c9856aa2f31770b6e758a
             </TouchableOpacity>
             <TouchableOpacity style={styles.buttonContainer} name="CartShop" onPress={() => props.navigation.navigate("CartShop")} >
                 <Text style={styles.textButtom}> Cart</Text>
