@@ -58,7 +58,7 @@ function DrawerNavigator(props) {
       <Drawer.Screen name="Home" component={Home} />
       {/* <Drawer.Screen name="Store" component={Shop} /> */}
       <Drawer.Screen name="AboutUs" component={AboutUs} />
-      <Drawer.Screen name="StoreNavigator" component={StoreNavigator} />
+      <Drawer.Screen name="Store" component={StoreNavigator} />
       <Drawer.Screen name="SignIn" component={FormSignIn} />
       <Drawer.Screen name="SignUp" component={FormSignUp} />
     </Drawer.Navigator>
