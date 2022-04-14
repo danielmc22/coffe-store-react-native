@@ -27,7 +27,7 @@ const FormSignUp = (props) => {
 
     return (
         <ScrollView>
-            <ImageBackground source={{ uri: "https://papers.co/wallpaper/papers.co-vh91-watercolor-texture-dark-black-pattern-36-3840x2400-4k-wallpaper.jpg" }} style={{ width: "100 %", display: 'flex', alignItems: 'center', justifyContent: 'center', height: 700 }}>
+            <ImageBackground source={require('../../assets/fondo_alto.jpg')} style={{ width: "100 %", display: 'flex', alignItems: 'center', justifyContent: 'center', height: 700 }}>
                 <View style={{ backgroundColor: '#000', width: '90%', minHeight: 500, alignSelf: 'center', backgroundColor: "rgba(26, 26, 26, 0.999)", borderRadius: 10 }}>
                     <Text style={{ fontSize: 28, fontWeight: 'bold', textAlign: 'center', fontFamily: 'serif', paddingTop: 20, color: '#fff', textShadowColor: '#17F5F9', marginBottom: 30 }}>
                         Sign Up

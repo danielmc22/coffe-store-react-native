@@ -11,7 +11,7 @@ import { version } from 'react-dom';
 import Home from '../screens/Home';
 import productActions from '../../redux/actions/productActions';
 import userAction from "../../redux/actions/userAction"
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import CustomDrawer from "../components/DrawerCustom"
 import Shop from '../screens/Shop';
 import AboutUs from '../screens/aboutUs';
@@ -57,6 +57,7 @@ function DrawerNavigator(props) {
 
       <Drawer.Screen name="Open" component={OpenPag} />
       <Drawer.Screen name="Home" component={Home} />
+      {/* <Drawer.Screen name="Store" component={Shop} /> */}
       <Drawer.Screen name="AboutUs" component={AboutUs} />
       <Drawer.Screen name="Detalle" component={Detalle} />
       <Drawer.Screen name="StoreNavigator" component={StoreNavigator} />

@@ -24,12 +24,12 @@ function AboutUs({ navigation }) {
         </View>
         <View style={{ display: 'flex', minHeight: 500, width: '90%', backgroundColor: "#efeefe", alignSelf: 'center', position: 'relative', top: -50, borderRadius: 5 }}>
           <Text style={{ color: "#000", fontSize: 32, textAlign: 'center', paddingTop: 15, fontWeight: 'bold' }}>About Us</Text>
-          <Text style={{ color: "#000", fontSize: 28, textAlign: 'justify', padding: 20 }}>Macchiato is a chain of coffee shops of its own, whose brand experience is lived in its exclusive premises.</Text>
+          <Text style={{ color: "#000", fontSize: 28, textAlign: 'left', padding: 20 }}>Macchiato is a chain of coffee shops of its own, whose brand experience is lived in its exclusive premises.</Text>
           <Text style={{ color: "#000", fontSize: 32, textAlign: 'center', paddingTop: 15, fontWeight: 'bold' }}>The Macchiato experience</Text>
-          <Text style={{ color: "#000", fontSize: 28, textAlign: 'justify', padding: 20 }}>Being able to enjoy Macchiato products in a relaxed atmosphere, and at the same time sharing rewarding moments, were the reasons that gave rise to the creation of the Macchiato Coffee concept. </Text>
+          <Text style={{ color: "#000", fontSize: 28, textAlign: 'left', padding: 20 }}>Being able to enjoy Macchiato products in a relaxed atmosphere, and at the same time sharing rewarding moments, were the reasons that gave rise to the creation of the Macchiato Coffee concept. </Text>
         </View>
 
-        <View style={{ display: 'flex', height: 170, justifyContent: 'space-evenly', flexDirection: 'row' }}>
+        <View style={{ display: 'flex', height: 170, justifyContent: 'space-evenly', flexDirection: 'row', }}>
           <View style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
             <Text style={{ fontSize: 15, color: '#efeefe', marginVertical: 8 }}>Federico Olguín</Text>
             <View style={{ borderRadius: 100, backgroundColor: 'black', width: 100, height: 100, overflow: 'hidden' }}>
