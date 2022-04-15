@@ -24,7 +24,7 @@ function OpenPag({ navigation }) {
         ><Text style={{ color: "#000", fontSize: 22 }}>Get started</Text>
         </TouchableOpacity>
       </ImageBackground>
-    </ScrollView >
+    </ScrollView>
   )
 }
 
