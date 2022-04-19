@@ -4,14 +4,14 @@ import { Image, View, ImageBackground, ScrollView, Text, TouchableOpacity } from
 function AboutUs({ navigation }) {
   return (
     <ScrollView>
-      <ImageBackground source={{ uri: 'https://i.ibb.co/2gHfJjq/Fondo-App-Macchiato-2.jpg' }} style={{ width: "100%", minHeight: 1000, display: 'flex' }}>
+      <ImageBackground source={require('../../assets/fondo_alto.jpg')} style={{ width: "100%", minHeight: 1000, display: 'flex' }}>
         <View style={{
           height: 200,
           display: 'flex',
           flexDirection: 'column',
           overflow: "hidden",
         }}>
-          <ImageBackground source={{ uri: 'https://images.unsplash.com/photo-1596098823457-74e360fcd023?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80' }} style={{
+          <ImageBackground source={require('../../assets/Home3.png')} style={{
             width: '100%',
             height: '100%',
             display: 'flex',
@@ -29,9 +29,9 @@ function AboutUs({ navigation }) {
           <Text style={{ color: "#000", fontSize: 28, textAlign: 'left', padding: 20 }}>Being able to enjoy Macchiato products in a relaxed atmosphere, and at the same time sharing rewarding moments, were the reasons that gave rise to the creation of the Macchiato Coffee concept. </Text>
         </View>
 
-        <View style={{ display: 'flex', height: 170, justifyContent: 'space-evenly', flexDirection: 'row', }}>
+        <View style={{ display: 'flex', height: 170, justifyContent: 'space-evenly', flexDirection: 'row', width: '100%' }}>
           <View style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-            <Text style={{ fontSize: 15, color: '#efeefe', marginVertical: 8 }}>Federico Olguín</Text>
+            <Text style={{ fontSize: 15, color: '#efeefe', marginVertical: 8, textAlign: 'center' }}>Federico Olguín</Text>
             <View style={{ borderRadius: 100, backgroundColor: 'black', width: 100, height: 100, overflow: 'hidden' }}>
               <Image
                 source={{ uri: 'https://i.ibb.co/dPGzmVF/federico.jpg' }}
@@ -41,7 +41,7 @@ function AboutUs({ navigation }) {
           </View>
 
           <View style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-            <Text style={{ fontSize: 15, color: '#efeefe', marginVertical: 8 }}>Fernanda Arrieta</Text>
+            <Text style={{ fontSize: 15, color: '#efeefe', marginVertical: 8, textAlign: 'center' }}>Fernanda Arrieta</Text>
             <View style={{ borderRadius: 100, backgroundColor: 'black', width: 100, height: 100, overflow: 'hidden' }}>
               <Image
                 source={{ uri: 'https://i.ibb.co/n8WY0LB/fernanda.jpg' }}
@@ -51,9 +51,9 @@ function AboutUs({ navigation }) {
           </View>
         </View>
 
-        <View style={{ display: 'flex', height: 170, justifyContent: 'space-evenly', flexDirection: 'row' }}>
+        <View style={{ display: 'flex', height: 170, justifyContent: 'space-evenly', flexDirection: 'row', width: '100%' }}>
           <View style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-            <Text style={{ fontSize: 15, color: '#efeefe', marginVertical: 8 }}>Sebastian Londoño</Text>
+            <Text style={{ fontSize: 15, color: '#efeefe', marginVertical: 8, textAlign: 'center' }}>Sebastian Londoño</Text>
             <View style={{ borderRadius: 100, backgroundColor: 'black', width: 100, height: 100, overflow: 'hidden' }}>
               <Image
                 source={{ uri: 'https://i.ibb.co/G3nwb4L/sebastian.jpg' }}
@@ -63,7 +63,7 @@ function AboutUs({ navigation }) {
           </View>
 
           <View style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-            <Text style={{ fontSize: 15, color: '#efeefe', marginVertical: 8 }}>Hernán Funes</Text>
+            <Text style={{ fontSize: 15, color: '#efeefe', marginVertical: 8, textAlign: 'center' }}>Hernán Funes</Text>
             <View style={{ borderRadius: 100, backgroundColor: 'black', width: 100, height: 100, overflow: 'hidden' }}>
               <Image
                 source={{ uri: 'https://i.ibb.co/rtG6hTZ/hernan.jpg' }}
@@ -73,9 +73,9 @@ function AboutUs({ navigation }) {
           </View>
         </View>
 
-        <View style={{ display: 'flex', height: 170, justifyContent: 'space-evenly', flexDirection: 'row' }}>
+        <View style={{ display: 'flex', height: 170, justifyContent: 'space-evenly', flexDirection: 'row', width: '100%' }}>
           <View style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-            <Text style={{ fontSize: 15, color: '#efeefe', marginVertical: 8 }}>Marcia Montivero</Text>
+            <Text style={{ fontSize: 15, color: '#efeefe', marginVertical: 8, textAlign: 'center' }}>Marcia Montivero</Text>
             <View style={{ borderRadius: 100, backgroundColor: 'black', width: 100, height: 100, overflow: 'hidden' }}>
               <Image
                 source={{ uri: 'https://i.ibb.co/nfQM137/marcia.jpg' }}
@@ -85,7 +85,7 @@ function AboutUs({ navigation }) {
           </View>
 
           <View style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-            <Text style={{ fontSize: 15, color: '#efeefe', marginVertical: 8 }}>Daniel Martinez</Text>
+            <Text style={{ fontSize: 15, color: '#efeefe', marginVertical: 8, textAlign: 'center' }}>Daniel Martinez</Text>
             <View style={{ borderRadius: 100, backgroundColor: 'black', width: 100, height: 100, overflow: 'hidden' }}>
               <Image
                 source={{ uri: 'https://i.ibb.co/F6ZZJ5C/daniel.jpg' }}

@@ -14,7 +14,7 @@ const productReducer = (state = initialState, action) => {
             return {
                 ...state,
                 allProducts: action.payload,
-                filtered: action.payload,
+                filtered: action.payload.filter((item) => item.category.includes("Coffee")),
             };
         case 'get_one_product':
             return {
@@ -27,6 +27,9 @@ const productReducer = (state = initialState, action) => {
                 filtered: action.payload
             }
         case "iniciarAlRecargar":
+            // console.log("???DAtoslocal???????????????????????");
+            // console.log(action.payload);
+            // console.log("???DAtoslocal???????????????????????");
             return {
                 ...state,
                 cart: [...action.payload]
@@ -58,7 +61,7 @@ const productReducer = (state = initialState, action) => {
 
         case "removeOneFromCart":
 
-            let poductsStorage = JSON.parse(AsyncStorage.getItem("shopCart"))
+            let poductsStorage = JSON.parse(AsyncStorage.getItem("shopCart")) // cambiar como se obtienen los datosd esde el local sgtorage
 
             let itemDelete = poductsStorage.find(prod => prod._id === action.payload)
 

@@ -23,16 +23,25 @@ function CardShop(props) {
             <View style={Styles.boxInfo}>
                 <Text style={{ color: '#efeefe', fontSize: 20, textAlign: 'center', fontWeight: 'bold' }}>{props.product.name}</Text>
                 <Text style={{ color: '#efeefe', fontSize: 20, textAlign: 'center' }}>$ {props.product.price}</Text>
-                <View>
-                    <AntDesign name="shoppingcart" size={30} color="white" />
-                </View>
+                <TouchableOpacity onPress={() => props.addToCart(props.product._id)}>
+                    <View>
+                        <AntDesign name="shoppingcart" size={30} color="white" />
+                    </View>
+                </TouchableOpacity>
             </View>
         </View>
          </TouchableOpacity> 
     )
 }
 
-export default CardShop
+// export default CardShop
+
+
+const mapDispatchToProps = {
+    addToCart: productActions.addToCart,
+}
+
+export default connect(null, mapDispatchToProps)(CardShop)
 
 const Styles = StyleSheet.create({
     card: {
